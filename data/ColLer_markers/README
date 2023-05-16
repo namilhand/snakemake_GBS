@@ -1,0 +1,20 @@
+# Descriptions on ColLer marker files
+
+BC.complete.tsv
+# Complete Ler marker file (compared to TAIR10). The file "BC.complete.tiger.txt" was modified to tsv format by using "correct_complete_marker.sh" script.
+
+BC.complete.tsv.gz
+# bgzip-ed BC.complete.tsv file. This file can be used as an argument for "bcftools call -T" option which specifiy cooridnates of marker to use.
+
+BC.complete.tsv.gz.tbi
+# index of BC.complete.tsv.gz
+# BC.complete tsv.gz and BC.complete.tsv.gz.tbi was made by using marker2vsf.sh file
+
+BC.mask.tsv
+# masked (corrected) marker of Ler.
+# This file was made by using "correct_mask_marker.sh" script which modifies "bc.hqsnv.mask.txt" file shared by Ian.
+
+# Below is the scripts used for making files above.
+correct_complete_marker.sh
+correct_mask_marker.sh
+marker2vcf.sh

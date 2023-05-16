@@ -1,0 +1,2 @@
+# up/down 50 kb from ARP6 (AT3G33520)
+Chr3	14043656	14145588
