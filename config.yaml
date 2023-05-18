@@ -1,8 +1,13 @@
+# Data that are not included in the repository:
+# 1. TAIR10.fasta
+# 2. TIGER script for distribution
+# Above files should be prepared by the user.
+
 THREADS: 30
 MEMORY: "300g"
 LIBRARY_INFO:
   sample_size: 96
-  # date: (if possible) annotate library name with the date when macrogen finished sequencing
+  # datein lib_name: (if possible) annotate library name with the date when macrogen finished sequencing
   lib_name: "20230512_MIGS-H2AW-SUVH"
 FILTER:
   cutadapt:

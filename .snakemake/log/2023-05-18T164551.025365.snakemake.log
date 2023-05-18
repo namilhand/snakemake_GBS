@@ -1,0 +1,2992 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 30
+Rules claiming more threads will be scaled down.
+Job stats:
+job                  count    min threads    max threads
+-----------------  -------  -------------  -------------
+all                      1              1              1
+bowtie2                 96             30             30
+cotable                  1              1              1
+cutadapt                96              1              1
+index_vcf               96              1              1
+markdup                 96              1              1
+samtools                96             30             30
+tiger                   96              1              1
+tigercall2tigerin       96              1              1
+varcall                 96              1              1
+vcf2tigercall           96              1              1
+total                  866              1             30
+
+Select jobs to execute...
+
+[Thu May 18 16:45:52 2023]
+rule cutadapt:
+    output: results/01_trimmed/34_R1.tr.fastq.gz, results/01_trimmed/34_R2.tr.fastq.gz, qc/cutadapt/34_cutadapt.qc.txt
+    log: logs/cutadapt/34_trimmed.log
+    jobid: 34
+    reason: Code has changed since last execution
+    wildcards: sample=34
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATAACGCTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/34_*_1.fastq.gz raw/34_*_2.fastq.gz -o results/01_trimmed/34_R1.tr.fastq.gz -p results/01_trimmed/34_R2.tr.fastq.gz > qc/cutadapt/34_cutadapt.qc.txt 2> logs/cutadapt/34_trimmed.log
+
+[Thu May 18 16:45:52 2023]
+rule cutadapt:
+    output: results/01_trimmed/94_R1.tr.fastq.gz, results/01_trimmed/94_R2.tr.fastq.gz, qc/cutadapt/94_cutadapt.qc.txt
+    log: logs/cutadapt/94_trimmed.log
+    jobid: 94
+    reason: Code has changed since last execution
+    wildcards: sample=94
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCTAACTCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/94_*_1.fastq.gz raw/94_*_2.fastq.gz -o results/01_trimmed/94_R1.tr.fastq.gz -p results/01_trimmed/94_R2.tr.fastq.gz > qc/cutadapt/94_cutadapt.qc.txt 2> logs/cutadapt/94_trimmed.log
+
+[Thu May 18 16:45:52 2023]
+rule cutadapt:
+    output: results/01_trimmed/4_R1.tr.fastq.gz, results/01_trimmed/4_R2.tr.fastq.gz, qc/cutadapt/4_cutadapt.qc.txt
+    log: logs/cutadapt/4_trimmed.log
+    jobid: 4
+    reason: Code has changed since last execution
+    wildcards: sample=4
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCAGTTACAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/4_*_1.fastq.gz raw/4_*_2.fastq.gz -o results/01_trimmed/4_R1.tr.fastq.gz -p results/01_trimmed/4_R2.tr.fastq.gz > qc/cutadapt/4_cutadapt.qc.txt 2> logs/cutadapt/4_trimmed.log
+
+[Thu May 18 16:45:52 2023]
+rule cutadapt:
+    output: results/01_trimmed/3_R1.tr.fastq.gz, results/01_trimmed/3_R2.tr.fastq.gz, qc/cutadapt/3_cutadapt.qc.txt
+    log: logs/cutadapt/3_trimmed.log
+    jobid: 3
+    reason: Code has changed since last execution
+    wildcards: sample=3
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATATCGACGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/3_*_1.fastq.gz raw/3_*_2.fastq.gz -o results/01_trimmed/3_R1.tr.fastq.gz -p results/01_trimmed/3_R2.tr.fastq.gz > qc/cutadapt/3_cutadapt.qc.txt 2> logs/cutadapt/3_trimmed.log
+
+[Thu May 18 16:45:52 2023]
+rule cutadapt:
+    output: results/01_trimmed/13_R1.tr.fastq.gz, results/01_trimmed/13_R2.tr.fastq.gz, qc/cutadapt/13_cutadapt.qc.txt
+    log: logs/cutadapt/13_trimmed.log
+    jobid: 13
+    reason: Code has changed since last execution
+    wildcards: sample=13
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGGTTGTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/13_*_1.fastq.gz raw/13_*_2.fastq.gz -o results/01_trimmed/13_R1.tr.fastq.gz -p results/01_trimmed/13_R2.tr.fastq.gz > qc/cutadapt/13_cutadapt.qc.txt 2> logs/cutadapt/13_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/58_R1.tr.fastq.gz, results/01_trimmed/58_R2.tr.fastq.gz, qc/cutadapt/58_cutadapt.qc.txt
+    log: logs/cutadapt/58_trimmed.log
+    jobid: 58
+    reason: Code has changed since last execution
+    wildcards: sample=58
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGACAGACAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/58_*_1.fastq.gz raw/58_*_2.fastq.gz -o results/01_trimmed/58_R1.tr.fastq.gz -p results/01_trimmed/58_R2.tr.fastq.gz > qc/cutadapt/58_cutadapt.qc.txt 2> logs/cutadapt/58_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/73_R1.tr.fastq.gz, results/01_trimmed/73_R2.tr.fastq.gz, qc/cutadapt/73_cutadapt.qc.txt
+    log: logs/cutadapt/73_trimmed.log
+    jobid: 73
+    reason: Code has changed since last execution
+    wildcards: sample=73
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCAACATTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/73_*_1.fastq.gz raw/73_*_2.fastq.gz -o results/01_trimmed/73_R1.tr.fastq.gz -p results/01_trimmed/73_R2.tr.fastq.gz > qc/cutadapt/73_cutadapt.qc.txt 2> logs/cutadapt/73_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/29_R1.tr.fastq.gz, results/01_trimmed/29_R2.tr.fastq.gz, qc/cutadapt/29_cutadapt.qc.txt
+    log: logs/cutadapt/29_trimmed.log
+    jobid: 29
+    reason: Code has changed since last execution
+    wildcards: sample=29
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCCTCAATAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/29_*_1.fastq.gz raw/29_*_2.fastq.gz -o results/01_trimmed/29_R1.tr.fastq.gz -p results/01_trimmed/29_R2.tr.fastq.gz > qc/cutadapt/29_cutadapt.qc.txt 2> logs/cutadapt/29_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/89_R1.tr.fastq.gz, results/01_trimmed/89_R2.tr.fastq.gz, qc/cutadapt/89_cutadapt.qc.txt
+    log: logs/cutadapt/89_trimmed.log
+    jobid: 89
+    reason: Code has changed since last execution
+    wildcards: sample=89
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTGTGTCGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/89_*_1.fastq.gz raw/89_*_2.fastq.gz -o results/01_trimmed/89_R1.tr.fastq.gz -p results/01_trimmed/89_R2.tr.fastq.gz > qc/cutadapt/89_cutadapt.qc.txt 2> logs/cutadapt/89_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/2_R1.tr.fastq.gz, results/01_trimmed/2_R2.tr.fastq.gz, qc/cutadapt/2_cutadapt.qc.txt
+    log: logs/cutadapt/2_trimmed.log
+    jobid: 2
+    reason: Code has changed since last execution
+    wildcards: sample=2
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ACTGACGTAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/2_*_1.fastq.gz raw/2_*_2.fastq.gz -o results/01_trimmed/2_R1.tr.fastq.gz -p results/01_trimmed/2_R2.tr.fastq.gz > qc/cutadapt/2_cutadapt.qc.txt 2> logs/cutadapt/2_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/59_R1.tr.fastq.gz, results/01_trimmed/59_R2.tr.fastq.gz, qc/cutadapt/59_cutadapt.qc.txt
+    log: logs/cutadapt/59_trimmed.log
+    jobid: 59
+    reason: Code has changed since last execution
+    wildcards: sample=59
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATAGAACACAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/59_*_1.fastq.gz raw/59_*_2.fastq.gz -o results/01_trimmed/59_R1.tr.fastq.gz -p results/01_trimmed/59_R2.tr.fastq.gz > qc/cutadapt/59_cutadapt.qc.txt 2> logs/cutadapt/59_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/7_R1.tr.fastq.gz, results/01_trimmed/7_R2.tr.fastq.gz, qc/cutadapt/7_cutadapt.qc.txt
+    log: logs/cutadapt/7_trimmed.log
+    jobid: 7
+    reason: Code has changed since last execution
+    wildcards: sample=7
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ACAGATCTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/7_*_1.fastq.gz raw/7_*_2.fastq.gz -o results/01_trimmed/7_R1.tr.fastq.gz -p results/01_trimmed/7_R2.tr.fastq.gz > qc/cutadapt/7_cutadapt.qc.txt 2> logs/cutadapt/7_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/30_R1.tr.fastq.gz, results/01_trimmed/30_R2.tr.fastq.gz, qc/cutadapt/30_cutadapt.qc.txt
+    log: logs/cutadapt/30_trimmed.log
+    jobid: 30
+    reason: Code has changed since last execution
+    wildcards: sample=30
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGTGGTTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/30_*_1.fastq.gz raw/30_*_2.fastq.gz -o results/01_trimmed/30_R1.tr.fastq.gz -p results/01_trimmed/30_R2.tr.fastq.gz > qc/cutadapt/30_cutadapt.qc.txt 2> logs/cutadapt/30_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/90_R1.tr.fastq.gz, results/01_trimmed/90_R2.tr.fastq.gz, qc/cutadapt/90_cutadapt.qc.txt
+    log: logs/cutadapt/90_trimmed.log
+    jobid: 90
+    reason: Code has changed since last execution
+    wildcards: sample=90
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCAATCCGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/90_*_1.fastq.gz raw/90_*_2.fastq.gz -o results/01_trimmed/90_R1.tr.fastq.gz -p results/01_trimmed/90_R2.tr.fastq.gz > qc/cutadapt/90_cutadapt.qc.txt 2> logs/cutadapt/90_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/60_R1.tr.fastq.gz, results/01_trimmed/60_R2.tr.fastq.gz, qc/cutadapt/60_cutadapt.qc.txt
+    log: logs/cutadapt/60_trimmed.log
+    jobid: 60
+    reason: Code has changed since last execution
+    wildcards: sample=60
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCATCCTAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/60_*_1.fastq.gz raw/60_*_2.fastq.gz -o results/01_trimmed/60_R1.tr.fastq.gz -p results/01_trimmed/60_R2.tr.fastq.gz > qc/cutadapt/60_cutadapt.qc.txt 2> logs/cutadapt/60_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/93_R1.tr.fastq.gz, results/01_trimmed/93_R2.tr.fastq.gz, qc/cutadapt/93_cutadapt.qc.txt
+    log: logs/cutadapt/93_trimmed.log
+    jobid: 93
+    reason: Code has changed since last execution
+    wildcards: sample=93
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCACTGTCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/93_*_1.fastq.gz raw/93_*_2.fastq.gz -o results/01_trimmed/93_R1.tr.fastq.gz -p results/01_trimmed/93_R2.tr.fastq.gz > qc/cutadapt/93_cutadapt.qc.txt 2> logs/cutadapt/93_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/31_R1.tr.fastq.gz, results/01_trimmed/31_R2.tr.fastq.gz, qc/cutadapt/31_cutadapt.qc.txt
+    log: logs/cutadapt/31_trimmed.log
+    jobid: 31
+    reason: Code has changed since last execution
+    wildcards: sample=31
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATAGTCTTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/31_*_1.fastq.gz raw/31_*_2.fastq.gz -o results/01_trimmed/31_R1.tr.fastq.gz -p results/01_trimmed/31_R2.tr.fastq.gz > qc/cutadapt/31_cutadapt.qc.txt 2> logs/cutadapt/31_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/91_R1.tr.fastq.gz, results/01_trimmed/91_R2.tr.fastq.gz, qc/cutadapt/91_cutadapt.qc.txt
+    log: logs/cutadapt/91_trimmed.log
+    jobid: 91
+    reason: Code has changed since last execution
+    wildcards: sample=91
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGACCTTAGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/91_*_1.fastq.gz raw/91_*_2.fastq.gz -o results/01_trimmed/91_R1.tr.fastq.gz -p results/01_trimmed/91_R2.tr.fastq.gz > qc/cutadapt/91_cutadapt.qc.txt 2> logs/cutadapt/91_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/61_R1.tr.fastq.gz, results/01_trimmed/61_R2.tr.fastq.gz, qc/cutadapt/61_cutadapt.qc.txt
+    log: logs/cutadapt/61_trimmed.log
+    jobid: 61
+    reason: Code has changed since last execution
+    wildcards: sample=61
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGCTGATAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/61_*_1.fastq.gz raw/61_*_2.fastq.gz -o results/01_trimmed/61_R1.tr.fastq.gz -p results/01_trimmed/61_R2.tr.fastq.gz > qc/cutadapt/61_cutadapt.qc.txt 2> logs/cutadapt/61_trimmed.log
+
+[Thu May 18 16:45:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/9_R1.tr.fastq.gz, results/01_trimmed/9_R2.tr.fastq.gz, qc/cutadapt/9_cutadapt.qc.txt
+    log: logs/cutadapt/9_trimmed.log
+    jobid: 9
+    reason: Code has changed since last execution
+    wildcards: sample=9
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGGCTACAGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/9_*_1.fastq.gz raw/9_*_2.fastq.gz -o results/01_trimmed/9_R1.tr.fastq.gz -p results/01_trimmed/9_R2.tr.fastq.gz > qc/cutadapt/9_cutadapt.qc.txt 2> logs/cutadapt/9_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/69_R1.tr.fastq.gz, results/01_trimmed/69_R2.tr.fastq.gz, qc/cutadapt/69_cutadapt.qc.txt
+    log: logs/cutadapt/69_trimmed.log
+    jobid: 69
+    reason: Code has changed since last execution
+    wildcards: sample=69
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGGTGAGTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/69_*_1.fastq.gz raw/69_*_2.fastq.gz -o results/01_trimmed/69_R1.tr.fastq.gz -p results/01_trimmed/69_R2.tr.fastq.gz > qc/cutadapt/69_cutadapt.qc.txt 2> logs/cutadapt/69_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/32_R1.tr.fastq.gz, results/01_trimmed/32_R2.tr.fastq.gz, qc/cutadapt/32_cutadapt.qc.txt
+    log: logs/cutadapt/32_trimmed.log
+    jobid: 32
+    reason: Code has changed since last execution
+    wildcards: sample=32
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTCCATTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/32_*_1.fastq.gz raw/32_*_2.fastq.gz -o results/01_trimmed/32_R1.tr.fastq.gz -p results/01_trimmed/32_R2.tr.fastq.gz > qc/cutadapt/32_cutadapt.qc.txt 2> logs/cutadapt/32_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/92_R1.tr.fastq.gz, results/01_trimmed/92_R2.tr.fastq.gz, qc/cutadapt/92_cutadapt.qc.txt
+    log: logs/cutadapt/92_trimmed.log
+    jobid: 92
+    reason: Code has changed since last execution
+    wildcards: sample=92
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCCTGTTCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/92_*_1.fastq.gz raw/92_*_2.fastq.gz -o results/01_trimmed/92_R1.tr.fastq.gz -p results/01_trimmed/92_R2.tr.fastq.gz > qc/cutadapt/92_cutadapt.qc.txt 2> logs/cutadapt/92_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/1_R1.tr.fastq.gz, results/01_trimmed/1_R2.tr.fastq.gz, qc/cutadapt/1_cutadapt.qc.txt
+    log: logs/cutadapt/1_trimmed.log
+    jobid: 1
+    reason: Code has changed since last execution
+    wildcards: sample=1
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AAGCTACGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/1_*_1.fastq.gz raw/1_*_2.fastq.gz -o results/01_trimmed/1_R1.tr.fastq.gz -p results/01_trimmed/1_R2.tr.fastq.gz > qc/cutadapt/1_cutadapt.qc.txt 2> logs/cutadapt/1_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/62_R1.tr.fastq.gz, results/01_trimmed/62_R2.tr.fastq.gz, qc/cutadapt/62_cutadapt.qc.txt
+    log: logs/cutadapt/62_trimmed.log
+    jobid: 62
+    reason: Code has changed since last execution
+    wildcards: sample=62
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATAGACGGAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/62_*_1.fastq.gz raw/62_*_2.fastq.gz -o results/01_trimmed/62_R1.tr.fastq.gz -p results/01_trimmed/62_R2.tr.fastq.gz > qc/cutadapt/62_cutadapt.qc.txt 2> logs/cutadapt/62_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/40_R1.tr.fastq.gz, results/01_trimmed/40_R2.tr.fastq.gz, qc/cutadapt/40_cutadapt.qc.txt
+    log: logs/cutadapt/40_trimmed.log
+    jobid: 40
+    reason: Code has changed since last execution
+    wildcards: sample=40
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATAAGTTCGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/40_*_1.fastq.gz raw/40_*_2.fastq.gz -o results/01_trimmed/40_R1.tr.fastq.gz -p results/01_trimmed/40_R2.tr.fastq.gz > qc/cutadapt/40_cutadapt.qc.txt 2> logs/cutadapt/40_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/10_R1.tr.fastq.gz, results/01_trimmed/10_R2.tr.fastq.gz, qc/cutadapt/10_cutadapt.qc.txt
+    log: logs/cutadapt/10_trimmed.log
+    jobid: 10
+    reason: Code has changed since last execution
+    wildcards: sample=10
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ACTTGTACTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/10_*_1.fastq.gz raw/10_*_2.fastq.gz -o results/01_trimmed/10_R1.tr.fastq.gz -p results/01_trimmed/10_R2.tr.fastq.gz > qc/cutadapt/10_cutadapt.qc.txt 2> logs/cutadapt/10_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/70_R1.tr.fastq.gz, results/01_trimmed/70_R2.tr.fastq.gz, qc/cutadapt/70_cutadapt.qc.txt
+    log: logs/cutadapt/70_trimmed.log
+    jobid: 70
+    reason: Code has changed since last execution
+    wildcards: sample=70
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGATCTCTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/70_*_1.fastq.gz raw/70_*_2.fastq.gz -o results/01_trimmed/70_R1.tr.fastq.gz -p results/01_trimmed/70_R2.tr.fastq.gz > qc/cutadapt/70_cutadapt.qc.txt 2> logs/cutadapt/70_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/33_R1.tr.fastq.gz, results/01_trimmed/33_R2.tr.fastq.gz, qc/cutadapt/33_cutadapt.qc.txt
+    log: logs/cutadapt/33_trimmed.log
+    jobid: 33
+    reason: Code has changed since last execution
+    wildcards: sample=33
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCGAAGTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/33_*_1.fastq.gz raw/33_*_2.fastq.gz -o results/01_trimmed/33_R1.tr.fastq.gz -p results/01_trimmed/33_R2.tr.fastq.gz > qc/cutadapt/33_cutadapt.qc.txt 2> logs/cutadapt/33_trimmed.log
+
+[Thu May 18 16:45:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/63_R1.tr.fastq.gz, results/01_trimmed/63_R2.tr.fastq.gz, qc/cutadapt/63_cutadapt.qc.txt
+    log: logs/cutadapt/63_trimmed.log
+    jobid: 63
+    reason: Code has changed since last execution
+    wildcards: sample=63
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGTGAAGAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/63_*_1.fastq.gz raw/63_*_2.fastq.gz -o results/01_trimmed/63_R1.tr.fastq.gz -p results/01_trimmed/63_R2.tr.fastq.gz > qc/cutadapt/63_cutadapt.qc.txt 2> logs/cutadapt/63_trimmed.log
+[Thu May 18 16:48:06 2023]
+Finished job 94.
+1 of 866 steps (0.1%) done
+Select jobs to execute...
+
+[Thu May 18 16:48:06 2023]
+rule cutadapt:
+    output: results/01_trimmed/88_R1.tr.fastq.gz, results/01_trimmed/88_R2.tr.fastq.gz, qc/cutadapt/88_cutadapt.qc.txt
+    log: logs/cutadapt/88_trimmed.log
+    jobid: 88
+    reason: Code has changed since last execution
+    wildcards: sample=88
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGATAGAGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/88_*_1.fastq.gz raw/88_*_2.fastq.gz -o results/01_trimmed/88_R1.tr.fastq.gz -p results/01_trimmed/88_R2.tr.fastq.gz > qc/cutadapt/88_cutadapt.qc.txt 2> logs/cutadapt/88_trimmed.log
+[Thu May 18 16:48:08 2023]
+Finished job 29.
+2 of 866 steps (0.2%) done
+Select jobs to execute...
+
+[Thu May 18 16:48:08 2023]
+rule cutadapt:
+    output: results/01_trimmed/28_R1.tr.fastq.gz, results/01_trimmed/28_R2.tr.fastq.gz, qc/cutadapt/28_cutadapt.qc.txt
+    log: logs/cutadapt/28_trimmed.log
+    jobid: 28
+    reason: Code has changed since last execution
+    wildcards: sample=28
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATACAGGATAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/28_*_1.fastq.gz raw/28_*_2.fastq.gz -o results/01_trimmed/28_R1.tr.fastq.gz -p results/01_trimmed/28_R2.tr.fastq.gz > qc/cutadapt/28_cutadapt.qc.txt 2> logs/cutadapt/28_trimmed.log
+[Thu May 18 16:48:25 2023]
+Finished job 73.
+3 of 866 steps (0.3%) done
+Select jobs to execute...
+
+[Thu May 18 16:48:25 2023]
+rule cutadapt:
+    output: results/01_trimmed/5_R1.tr.fastq.gz, results/01_trimmed/5_R2.tr.fastq.gz, qc/cutadapt/5_cutadapt.qc.txt
+    log: logs/cutadapt/5_trimmed.log
+    jobid: 5
+    reason: Code has changed since last execution
+    wildcards: sample=5
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AATCACGTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/5_*_1.fastq.gz raw/5_*_2.fastq.gz -o results/01_trimmed/5_R1.tr.fastq.gz -p results/01_trimmed/5_R2.tr.fastq.gz > qc/cutadapt/5_cutadapt.qc.txt 2> logs/cutadapt/5_trimmed.log
+[Thu May 18 16:48:36 2023]
+Finished job 60.
+4 of 866 steps (0.5%) done
+Select jobs to execute...
+
+[Thu May 18 16:48:36 2023]
+rule cutadapt:
+    output: results/01_trimmed/74_R1.tr.fastq.gz, results/01_trimmed/74_R2.tr.fastq.gz, qc/cutadapt/74_cutadapt.qc.txt
+    log: logs/cutadapt/74_trimmed.log
+    jobid: 74
+    reason: Code has changed since last execution
+    wildcards: sample=74
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGGTCGTGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/74_*_1.fastq.gz raw/74_*_2.fastq.gz -o results/01_trimmed/74_R1.tr.fastq.gz -p results/01_trimmed/74_R2.tr.fastq.gz > qc/cutadapt/74_cutadapt.qc.txt 2> logs/cutadapt/74_trimmed.log
+[Thu May 18 16:48:37 2023]
+Finished job 91.
+5 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:48:37 2023]
+rule cutadapt:
+    output: results/01_trimmed/36_R1.tr.fastq.gz, results/01_trimmed/36_R2.tr.fastq.gz, qc/cutadapt/36_cutadapt.qc.txt
+    log: logs/cutadapt/36_trimmed.log
+    jobid: 36
+    reason: Code has changed since last execution
+    wildcards: sample=36
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGAACTGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/36_*_1.fastq.gz raw/36_*_2.fastq.gz -o results/01_trimmed/36_R1.tr.fastq.gz -p results/01_trimmed/36_R2.tr.fastq.gz > qc/cutadapt/36_cutadapt.qc.txt 2> logs/cutadapt/36_trimmed.log
+[Thu May 18 16:48:54 2023]
+Finished job 70.
+6 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:48:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/22_R1.tr.fastq.gz, results/01_trimmed/22_R2.tr.fastq.gz, qc/cutadapt/22_cutadapt.qc.txt
+    log: logs/cutadapt/22_trimmed.log
+    jobid: 22
+    reason: Code has changed since last execution
+    wildcards: sample=22
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGATACGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/22_*_1.fastq.gz raw/22_*_2.fastq.gz -o results/01_trimmed/22_R1.tr.fastq.gz -p results/01_trimmed/22_R2.tr.fastq.gz > qc/cutadapt/22_cutadapt.qc.txt 2> logs/cutadapt/22_trimmed.log
+[Thu May 18 16:49:03 2023]
+Finished job 89.
+7 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:03 2023]
+rule cutadapt:
+    output: results/01_trimmed/82_R1.tr.fastq.gz, results/01_trimmed/82_R2.tr.fastq.gz, qc/cutadapt/82_cutadapt.qc.txt
+    log: logs/cutadapt/82_trimmed.log
+    jobid: 82
+    reason: Code has changed since last execution
+    wildcards: sample=82
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGAGCCAATAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/82_*_1.fastq.gz raw/82_*_2.fastq.gz -o results/01_trimmed/82_R1.tr.fastq.gz -p results/01_trimmed/82_R2.tr.fastq.gz > qc/cutadapt/82_cutadapt.qc.txt 2> logs/cutadapt/82_trimmed.log
+[Thu May 18 16:49:13 2023]
+Finished job 7.
+8 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:13 2023]
+rule cutadapt:
+    output: results/01_trimmed/37_R1.tr.fastq.gz, results/01_trimmed/37_R2.tr.fastq.gz, qc/cutadapt/37_cutadapt.qc.txt
+    log: logs/cutadapt/37_trimmed.log
+    jobid: 37
+    reason: Code has changed since last execution
+    wildcards: sample=37
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATACTTCGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/37_*_1.fastq.gz raw/37_*_2.fastq.gz -o results/01_trimmed/37_R1.tr.fastq.gz -p results/01_trimmed/37_R2.tr.fastq.gz > qc/cutadapt/37_cutadapt.qc.txt 2> logs/cutadapt/37_trimmed.log
+[Thu May 18 16:49:14 2023]
+Finished job 33.
+9 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:14 2023]
+rule cutadapt:
+    output: results/01_trimmed/66_R1.tr.fastq.gz, results/01_trimmed/66_R2.tr.fastq.gz, qc/cutadapt/66_cutadapt.qc.txt
+    log: logs/cutadapt/66_trimmed.log
+    jobid: 66
+    reason: Code has changed since last execution
+    wildcards: sample=66
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGAAGCCAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/66_*_1.fastq.gz raw/66_*_2.fastq.gz -o results/01_trimmed/66_R1.tr.fastq.gz -p results/01_trimmed/66_R2.tr.fastq.gz > qc/cutadapt/66_cutadapt.qc.txt 2> logs/cutadapt/66_trimmed.log
+[Thu May 18 16:49:15 2023]
+Finished job 9.
+10 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:15 2023]
+rule cutadapt:
+    output: results/01_trimmed/52_R1.tr.fastq.gz, results/01_trimmed/52_R2.tr.fastq.gz, qc/cutadapt/52_cutadapt.qc.txt
+    log: logs/cutadapt/52_trimmed.log
+    jobid: 52
+    reason: Code has changed since last execution
+    wildcards: sample=52
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCGTTAGCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/52_*_1.fastq.gz raw/52_*_2.fastq.gz -o results/01_trimmed/52_R1.tr.fastq.gz -p results/01_trimmed/52_R2.tr.fastq.gz > qc/cutadapt/52_cutadapt.qc.txt 2> logs/cutadapt/52_trimmed.log
+[Thu May 18 16:49:30 2023]
+Finished job 32.
+11 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:31 2023]
+rule cutadapt:
+    output: results/01_trimmed/51_R1.tr.fastq.gz, results/01_trimmed/51_R2.tr.fastq.gz, qc/cutadapt/51_cutadapt.qc.txt
+    log: logs/cutadapt/51_trimmed.log
+    jobid: 51
+    reason: Code has changed since last execution
+    wildcards: sample=51
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTACTCGCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/51_*_1.fastq.gz raw/51_*_2.fastq.gz -o results/01_trimmed/51_R1.tr.fastq.gz -p results/01_trimmed/51_R2.tr.fastq.gz > qc/cutadapt/51_cutadapt.qc.txt 2> logs/cutadapt/51_trimmed.log
+[Thu May 18 16:49:47 2023]
+Finished job 69.
+12 of 866 steps (1%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:48 2023]
+rule cutadapt:
+    output: results/01_trimmed/44_R1.tr.fastq.gz, results/01_trimmed/44_R2.tr.fastq.gz, qc/cutadapt/44_cutadapt.qc.txt
+    log: logs/cutadapt/44_trimmed.log
+    jobid: 44
+    reason: Code has changed since last execution
+    wildcards: sample=44
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGGCTCAGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/44_*_1.fastq.gz raw/44_*_2.fastq.gz -o results/01_trimmed/44_R1.tr.fastq.gz -p results/01_trimmed/44_R2.tr.fastq.gz > qc/cutadapt/44_cutadapt.qc.txt 2> logs/cutadapt/44_trimmed.log
+[Thu May 18 16:49:54 2023]
+Finished job 63.
+13 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/48_R1.tr.fastq.gz, results/01_trimmed/48_R2.tr.fastq.gz, qc/cutadapt/48_cutadapt.qc.txt
+    log: logs/cutadapt/48_trimmed.log
+    jobid: 48
+    reason: Code has changed since last execution
+    wildcards: sample=48
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTCAGCTCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/48_*_1.fastq.gz raw/48_*_2.fastq.gz -o results/01_trimmed/48_R1.tr.fastq.gz -p results/01_trimmed/48_R2.tr.fastq.gz > qc/cutadapt/48_cutadapt.qc.txt 2> logs/cutadapt/48_trimmed.log
+[Thu May 18 16:49:58 2023]
+Finished job 4.
+14 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:49:58 2023]
+rule cutadapt:
+    output: results/01_trimmed/14_R1.tr.fastq.gz, results/01_trimmed/14_R2.tr.fastq.gz, qc/cutadapt/14_cutadapt.qc.txt
+    log: logs/cutadapt/14_trimmed.log
+    jobid: 14
+    reason: Code has changed since last execution
+    wildcards: sample=14
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCTCGGTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/14_*_1.fastq.gz raw/14_*_2.fastq.gz -o results/01_trimmed/14_R1.tr.fastq.gz -p results/01_trimmed/14_R2.tr.fastq.gz > qc/cutadapt/14_cutadapt.qc.txt 2> logs/cutadapt/14_trimmed.log
+[Thu May 18 16:50:00 2023]
+Finished job 62.
+15 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:00 2023]
+rule cutadapt:
+    output: results/01_trimmed/6_R1.tr.fastq.gz, results/01_trimmed/6_R2.tr.fastq.gz, qc/cutadapt/6_cutadapt.qc.txt
+    log: logs/cutadapt/6_trimmed.log
+    jobid: 6
+    reason: Code has changed since last execution
+    wildcards: sample=6
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGATCAGCGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/6_*_1.fastq.gz raw/6_*_2.fastq.gz -o results/01_trimmed/6_R1.tr.fastq.gz -p results/01_trimmed/6_R2.tr.fastq.gz > qc/cutadapt/6_cutadapt.qc.txt 2> logs/cutadapt/6_trimmed.log
+[Thu May 18 16:50:03 2023]
+Finished job 31.
+16 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:03 2023]
+rule cutadapt:
+    output: results/01_trimmed/78_R1.tr.fastq.gz, results/01_trimmed/78_R2.tr.fastq.gz, qc/cutadapt/78_cutadapt.qc.txt
+    log: logs/cutadapt/78_trimmed.log
+    jobid: 78
+    reason: Code has changed since last execution
+    wildcards: sample=78
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCATGGCTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/78_*_1.fastq.gz raw/78_*_2.fastq.gz -o results/01_trimmed/78_R1.tr.fastq.gz -p results/01_trimmed/78_R2.tr.fastq.gz > qc/cutadapt/78_cutadapt.qc.txt 2> logs/cutadapt/78_trimmed.log
+[Thu May 18 16:50:04 2023]
+Finished job 92.
+17 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:04 2023]
+rule cutadapt:
+    output: results/01_trimmed/67_R1.tr.fastq.gz, results/01_trimmed/67_R2.tr.fastq.gz, qc/cutadapt/67_cutadapt.qc.txt
+    log: logs/cutadapt/67_trimmed.log
+    jobid: 67
+    reason: Code has changed since last execution
+    wildcards: sample=67
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATACCACCAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/67_*_1.fastq.gz raw/67_*_2.fastq.gz -o results/01_trimmed/67_R1.tr.fastq.gz -p results/01_trimmed/67_R2.tr.fastq.gz > qc/cutadapt/67_cutadapt.qc.txt 2> logs/cutadapt/67_trimmed.log
+[Thu May 18 16:50:10 2023]
+Finished job 34.
+18 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:10 2023]
+rule cutadapt:
+    output: results/01_trimmed/15_R1.tr.fastq.gz, results/01_trimmed/15_R2.tr.fastq.gz, qc/cutadapt/15_cutadapt.qc.txt
+    log: logs/cutadapt/15_trimmed.log
+    jobid: 15
+    reason: Code has changed since last execution
+    wildcards: sample=15
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATAAGCGTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/15_*_1.fastq.gz raw/15_*_2.fastq.gz -o results/01_trimmed/15_R1.tr.fastq.gz -p results/01_trimmed/15_R2.tr.fastq.gz > qc/cutadapt/15_cutadapt.qc.txt 2> logs/cutadapt/15_trimmed.log
+[Thu May 18 16:50:15 2023]
+Finished job 13.
+19 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:15 2023]
+rule cutadapt:
+    output: results/01_trimmed/26_R1.tr.fastq.gz, results/01_trimmed/26_R2.tr.fastq.gz, qc/cutadapt/26_cutadapt.qc.txt
+    log: logs/cutadapt/26_trimmed.log
+    jobid: 26
+    reason: Code has changed since last execution
+    wildcards: sample=26
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTCCTGCTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/26_*_1.fastq.gz raw/26_*_2.fastq.gz -o results/01_trimmed/26_R1.tr.fastq.gz -p results/01_trimmed/26_R2.tr.fastq.gz > qc/cutadapt/26_cutadapt.qc.txt 2> logs/cutadapt/26_trimmed.log
+[Thu May 18 16:50:22 2023]
+Finished job 3.
+20 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:22 2023]
+rule cutadapt:
+    output: results/01_trimmed/86_R1.tr.fastq.gz, results/01_trimmed/86_R2.tr.fastq.gz, qc/cutadapt/86_cutadapt.qc.txt
+    log: logs/cutadapt/86_trimmed.log
+    jobid: 86
+    reason: Code has changed since last execution
+    wildcards: sample=86
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTTGTCGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/86_*_1.fastq.gz raw/86_*_2.fastq.gz -o results/01_trimmed/86_R1.tr.fastq.gz -p results/01_trimmed/86_R2.tr.fastq.gz > qc/cutadapt/86_cutadapt.qc.txt 2> logs/cutadapt/86_trimmed.log
+[Thu May 18 16:50:24 2023]
+Finished job 93.
+21 of 866 steps (2%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:24 2023]
+rule cutadapt:
+    output: results/01_trimmed/81_R1.tr.fastq.gz, results/01_trimmed/81_R2.tr.fastq.gz, qc/cutadapt/81_cutadapt.qc.txt
+    log: logs/cutadapt/81_trimmed.log
+    jobid: 81
+    reason: Code has changed since last execution
+    wildcards: sample=81
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGGAATGATAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/81_*_1.fastq.gz raw/81_*_2.fastq.gz -o results/01_trimmed/81_R1.tr.fastq.gz -p results/01_trimmed/81_R2.tr.fastq.gz > qc/cutadapt/81_cutadapt.qc.txt 2> logs/cutadapt/81_trimmed.log
+[Thu May 18 16:50:28 2023]
+Finished job 59.
+22 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:28 2023]
+rule cutadapt:
+    output: results/01_trimmed/21_R1.tr.fastq.gz, results/01_trimmed/21_R2.tr.fastq.gz, qc/cutadapt/21_cutadapt.qc.txt
+    log: logs/cutadapt/21_trimmed.log
+    jobid: 21
+    reason: Code has changed since last execution
+    wildcards: sample=21
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCGAGCGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/21_*_1.fastq.gz raw/21_*_2.fastq.gz -o results/01_trimmed/21_R1.tr.fastq.gz -p results/01_trimmed/21_R2.tr.fastq.gz > qc/cutadapt/21_cutadapt.qc.txt 2> logs/cutadapt/21_trimmed.log
+[Thu May 18 16:50:37 2023]
+Finished job 30.
+23 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:37 2023]
+rule cutadapt:
+    output: results/01_trimmed/96_R1.tr.fastq.gz, results/01_trimmed/96_R2.tr.fastq.gz, qc/cutadapt/96_cutadapt.qc.txt
+    log: logs/cutadapt/96_trimmed.log
+    jobid: 96
+    reason: Code has changed since last execution
+    wildcards: sample=96
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTCTTGGCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/96_*_1.fastq.gz raw/96_*_2.fastq.gz -o results/01_trimmed/96_R1.tr.fastq.gz -p results/01_trimmed/96_R2.tr.fastq.gz > qc/cutadapt/96_cutadapt.qc.txt 2> logs/cutadapt/96_trimmed.log
+[Thu May 18 16:50:45 2023]
+Finished job 36.
+24 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:50:45 2023]
+rule cutadapt:
+    output: results/01_trimmed/56_R1.tr.fastq.gz, results/01_trimmed/56_R2.tr.fastq.gz, qc/cutadapt/56_cutadapt.qc.txt
+    log: logs/cutadapt/56_trimmed.log
+    jobid: 56
+    reason: Code has changed since last execution
+    wildcards: sample=56
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTGCGTACAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/56_*_1.fastq.gz raw/56_*_2.fastq.gz -o results/01_trimmed/56_R1.tr.fastq.gz -p results/01_trimmed/56_R2.tr.fastq.gz > qc/cutadapt/56_cutadapt.qc.txt 2> logs/cutadapt/56_trimmed.log
+[Thu May 18 16:51:13 2023]
+Finished job 28.
+25 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:51:13 2023]
+rule cutadapt:
+    output: results/01_trimmed/19_R1.tr.fastq.gz, results/01_trimmed/19_R2.tr.fastq.gz, qc/cutadapt/19_cutadapt.qc.txt
+    log: logs/cutadapt/19_trimmed.log
+    jobid: 19
+    reason: Code has changed since last execution
+    wildcards: sample=19
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCTGCTGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/19_*_1.fastq.gz raw/19_*_2.fastq.gz -o results/01_trimmed/19_R1.tr.fastq.gz -p results/01_trimmed/19_R2.tr.fastq.gz > qc/cutadapt/19_cutadapt.qc.txt 2> logs/cutadapt/19_trimmed.log
+[Thu May 18 16:51:16 2023]
+Finished job 82.
+26 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:51:16 2023]
+rule cutadapt:
+    output: results/01_trimmed/43_R1.tr.fastq.gz, results/01_trimmed/43_R2.tr.fastq.gz, qc/cutadapt/43_cutadapt.qc.txt
+    log: logs/cutadapt/43_trimmed.log
+    jobid: 43
+    reason: Code has changed since last execution
+    wildcards: sample=43
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCATTGAGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/43_*_1.fastq.gz raw/43_*_2.fastq.gz -o results/01_trimmed/43_R1.tr.fastq.gz -p results/01_trimmed/43_R2.tr.fastq.gz > qc/cutadapt/43_cutadapt.qc.txt 2> logs/cutadapt/43_trimmed.log
+[Thu May 18 16:51:30 2023]
+Finished job 10.
+27 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:51:30 2023]
+rule cutadapt:
+    output: results/01_trimmed/79_R1.tr.fastq.gz, results/01_trimmed/79_R2.tr.fastq.gz, qc/cutadapt/79_cutadapt.qc.txt
+    log: logs/cutadapt/79_trimmed.log
+    jobid: 79
+    reason: Code has changed since last execution
+    wildcards: sample=79
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTTAGCCTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/79_*_1.fastq.gz raw/79_*_2.fastq.gz -o results/01_trimmed/79_R1.tr.fastq.gz -p results/01_trimmed/79_R2.tr.fastq.gz > qc/cutadapt/79_cutadapt.qc.txt 2> logs/cutadapt/79_trimmed.log
+[Thu May 18 16:51:43 2023]
+Finished job 1.
+28 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:51:43 2023]
+rule cutadapt:
+    output: results/01_trimmed/72_R1.tr.fastq.gz, results/01_trimmed/72_R2.tr.fastq.gz, qc/cutadapt/72_cutadapt.qc.txt
+    log: logs/cutadapt/72_trimmed.log
+    jobid: 72
+    reason: Code has changed since last execution
+    wildcards: sample=72
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGACGGATTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/72_*_1.fastq.gz raw/72_*_2.fastq.gz -o results/01_trimmed/72_R1.tr.fastq.gz -p results/01_trimmed/72_R2.tr.fastq.gz > qc/cutadapt/72_cutadapt.qc.txt 2> logs/cutadapt/72_trimmed.log
+[Thu May 18 16:51:51 2023]
+Finished job 22.
+29 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:51:51 2023]
+rule cutadapt:
+    output: results/01_trimmed/75_R1.tr.fastq.gz, results/01_trimmed/75_R2.tr.fastq.gz, qc/cutadapt/75_cutadapt.qc.txt
+    log: logs/cutadapt/75_trimmed.log
+    jobid: 75
+    reason: Code has changed since last execution
+    wildcards: sample=75
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGAATCTGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/75_*_1.fastq.gz raw/75_*_2.fastq.gz -o results/01_trimmed/75_R1.tr.fastq.gz -p results/01_trimmed/75_R2.tr.fastq.gz > qc/cutadapt/75_cutadapt.qc.txt 2> logs/cutadapt/75_trimmed.log
+[Thu May 18 16:51:52 2023]
+Finished job 40.
+30 of 866 steps (3%) done
+Select jobs to execute...
+
+[Thu May 18 16:51:52 2023]
+rule cutadapt:
+    output: results/01_trimmed/45_R1.tr.fastq.gz, results/01_trimmed/45_R2.tr.fastq.gz, qc/cutadapt/45_cutadapt.qc.txt
+    log: logs/cutadapt/45_trimmed.log
+    jobid: 45
+    reason: Code has changed since last execution
+    wildcards: sample=45
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATATGCCAGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/45_*_1.fastq.gz raw/45_*_2.fastq.gz -o results/01_trimmed/45_R1.tr.fastq.gz -p results/01_trimmed/45_R2.tr.fastq.gz > qc/cutadapt/45_cutadapt.qc.txt 2> logs/cutadapt/45_trimmed.log
+[Thu May 18 16:52:13 2023]
+Finished job 74.
+31 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:52:13 2023]
+rule cutadapt:
+    output: results/01_trimmed/42_R1.tr.fastq.gz, results/01_trimmed/42_R2.tr.fastq.gz, qc/cutadapt/42_cutadapt.qc.txt
+    log: logs/cutadapt/42_trimmed.log
+    jobid: 42
+    reason: Code has changed since last execution
+    wildcards: sample=42
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGTATGCGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/42_*_1.fastq.gz raw/42_*_2.fastq.gz -o results/01_trimmed/42_R1.tr.fastq.gz -p results/01_trimmed/42_R2.tr.fastq.gz > qc/cutadapt/42_cutadapt.qc.txt 2> logs/cutadapt/42_trimmed.log
+[Thu May 18 16:52:21 2023]
+Finished job 61.
+32 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:52:21 2023]
+rule cutadapt:
+    output: results/01_trimmed/41_R1.tr.fastq.gz, results/01_trimmed/41_R2.tr.fastq.gz, qc/cutadapt/41_cutadapt.qc.txt
+    log: logs/cutadapt/41_trimmed.log
+    jobid: 41
+    reason: Code has changed since last execution
+    wildcards: sample=41
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCCAGTCGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/41_*_1.fastq.gz raw/41_*_2.fastq.gz -o results/01_trimmed/41_R1.tr.fastq.gz -p results/01_trimmed/41_R2.tr.fastq.gz > qc/cutadapt/41_cutadapt.qc.txt 2> logs/cutadapt/41_trimmed.log
+[Thu May 18 16:52:25 2023]
+Finished job 2.
+33 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:52:25 2023]
+rule cutadapt:
+    output: results/01_trimmed/95_R1.tr.fastq.gz, results/01_trimmed/95_R2.tr.fastq.gz, qc/cutadapt/95_cutadapt.qc.txt
+    log: logs/cutadapt/95_trimmed.log
+    jobid: 95
+    reason: Code has changed since last execution
+    wildcards: sample=95
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGATTCATCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/95_*_1.fastq.gz raw/95_*_2.fastq.gz -o results/01_trimmed/95_R1.tr.fastq.gz -p results/01_trimmed/95_R2.tr.fastq.gz > qc/cutadapt/95_cutadapt.qc.txt 2> logs/cutadapt/95_trimmed.log
+[Thu May 18 16:53:03 2023]
+Finished job 6.
+34 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:03 2023]
+rule cutadapt:
+    output: results/01_trimmed/50_R1.tr.fastq.gz, results/01_trimmed/50_R2.tr.fastq.gz, qc/cutadapt/50_cutadapt.qc.txt
+    log: logs/cutadapt/50_trimmed.log
+    jobid: 50
+    reason: Code has changed since last execution
+    wildcards: sample=50
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATATGTGGCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/50_*_1.fastq.gz raw/50_*_2.fastq.gz -o results/01_trimmed/50_R1.tr.fastq.gz -p results/01_trimmed/50_R2.tr.fastq.gz > qc/cutadapt/50_cutadapt.qc.txt 2> logs/cutadapt/50_trimmed.log
+[Thu May 18 16:53:10 2023]
+Finished job 5.
+35 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:10 2023]
+rule cutadapt:
+    output: results/01_trimmed/80_R1.tr.fastq.gz, results/01_trimmed/80_R2.tr.fastq.gz, qc/cutadapt/80_cutadapt.qc.txt
+    log: logs/cutadapt/80_trimmed.log
+    jobid: 80
+    reason: Code has changed since last execution
+    wildcards: sample=80
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTCGCTATAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/80_*_1.fastq.gz raw/80_*_2.fastq.gz -o results/01_trimmed/80_R1.tr.fastq.gz -p results/01_trimmed/80_R2.tr.fastq.gz > qc/cutadapt/80_cutadapt.qc.txt 2> logs/cutadapt/80_trimmed.log
+[Thu May 18 16:53:13 2023]
+Finished job 88.
+36 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:13 2023]
+rule cutadapt:
+    output: results/01_trimmed/20_R1.tr.fastq.gz, results/01_trimmed/20_R2.tr.fastq.gz, qc/cutadapt/20_cutadapt.qc.txt
+    log: logs/cutadapt/20_trimmed.log
+    jobid: 20
+    reason: Code has changed since last execution
+    wildcards: sample=20
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTGGAGGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/20_*_1.fastq.gz raw/20_*_2.fastq.gz -o results/01_trimmed/20_R1.tr.fastq.gz -p results/01_trimmed/20_R2.tr.fastq.gz > qc/cutadapt/20_cutadapt.qc.txt 2> logs/cutadapt/20_trimmed.log
+[Thu May 18 16:53:16 2023]
+Finished job 44.
+37 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:16 2023]
+rule cutadapt:
+    output: results/01_trimmed/35_R1.tr.fastq.gz, results/01_trimmed/35_R2.tr.fastq.gz, qc/cutadapt/35_cutadapt.qc.txt
+    log: logs/cutadapt/35_trimmed.log
+    jobid: 35
+    reason: Code has changed since last execution
+    wildcards: sample=35
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTGGTATGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/35_*_1.fastq.gz raw/35_*_2.fastq.gz -o results/01_trimmed/35_R1.tr.fastq.gz -p results/01_trimmed/35_R2.tr.fastq.gz > qc/cutadapt/35_cutadapt.qc.txt 2> logs/cutadapt/35_trimmed.log
+[Thu May 18 16:53:38 2023]
+Finished job 14.
+38 of 866 steps (4%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:38 2023]
+rule cutadapt:
+    output: results/01_trimmed/57_R1.tr.fastq.gz, results/01_trimmed/57_R2.tr.fastq.gz, qc/cutadapt/57_cutadapt.qc.txt
+    log: logs/cutadapt/57_trimmed.log
+    jobid: 57
+    reason: Code has changed since last execution
+    wildcards: sample=57
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCTACGACAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/57_*_1.fastq.gz raw/57_*_2.fastq.gz -o results/01_trimmed/57_R1.tr.fastq.gz -p results/01_trimmed/57_R2.tr.fastq.gz > qc/cutadapt/57_cutadapt.qc.txt 2> logs/cutadapt/57_trimmed.log
+[Thu May 18 16:53:39 2023]
+Finished job 67.
+39 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:39 2023]
+rule cutadapt:
+    output: results/01_trimmed/87_R1.tr.fastq.gz, results/01_trimmed/87_R2.tr.fastq.gz, qc/cutadapt/87_cutadapt.qc.txt
+    log: logs/cutadapt/87_trimmed.log
+    jobid: 87
+    reason: Code has changed since last execution
+    wildcards: sample=87
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGGATTAGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/87_*_1.fastq.gz raw/87_*_2.fastq.gz -o results/01_trimmed/87_R1.tr.fastq.gz -p results/01_trimmed/87_R2.tr.fastq.gz > qc/cutadapt/87_cutadapt.qc.txt 2> logs/cutadapt/87_trimmed.log
+[Thu May 18 16:53:42 2023]
+Finished job 66.
+40 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:42 2023]
+rule cutadapt:
+    output: results/01_trimmed/65_R1.tr.fastq.gz, results/01_trimmed/65_R2.tr.fastq.gz, qc/cutadapt/65_cutadapt.qc.txt
+    log: logs/cutadapt/65_trimmed.log
+    jobid: 65
+    reason: Code has changed since last execution
+    wildcards: sample=65
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTGTTCCAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/65_*_1.fastq.gz raw/65_*_2.fastq.gz -o results/01_trimmed/65_R1.tr.fastq.gz -p results/01_trimmed/65_R2.tr.fastq.gz > qc/cutadapt/65_cutadapt.qc.txt 2> logs/cutadapt/65_trimmed.log
+[Thu May 18 16:53:43 2023]
+Finished job 86.
+41 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:43 2023]
+rule cutadapt:
+    output: results/01_trimmed/12_R1.tr.fastq.gz, results/01_trimmed/12_R2.tr.fastq.gz, qc/cutadapt/12_cutadapt.qc.txt
+    log: logs/cutadapt/12_trimmed.log
+    jobid: 12
+    reason: Code has changed since last execution
+    wildcards: sample=12
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGACCACTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/12_*_1.fastq.gz raw/12_*_2.fastq.gz -o results/01_trimmed/12_R1.tr.fastq.gz -p results/01_trimmed/12_R2.tr.fastq.gz > qc/cutadapt/12_cutadapt.qc.txt 2> logs/cutadapt/12_trimmed.log
+[Thu May 18 16:53:53 2023]
+Finished job 78.
+42 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:53 2023]
+rule cutadapt:
+    output: results/01_trimmed/11_R1.tr.fastq.gz, results/01_trimmed/11_R2.tr.fastq.gz, qc/cutadapt/11_cutadapt.qc.txt
+    log: logs/cutadapt/11_trimmed.log
+    jobid: 11
+    reason: Code has changed since last execution
+    wildcards: sample=11
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AACTTGATGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/11_*_1.fastq.gz raw/11_*_2.fastq.gz -o results/01_trimmed/11_R1.tr.fastq.gz -p results/01_trimmed/11_R2.tr.fastq.gz > qc/cutadapt/11_cutadapt.qc.txt 2> logs/cutadapt/11_trimmed.log
+[Thu May 18 16:53:55 2023]
+Finished job 37.
+43 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:55 2023]
+rule cutadapt:
+    output: results/01_trimmed/27_R1.tr.fastq.gz, results/01_trimmed/27_R2.tr.fastq.gz, qc/cutadapt/27_cutadapt.qc.txt
+    log: logs/cutadapt/27_trimmed.log
+    jobid: 27
+    reason: Code has changed since last execution
+    wildcards: sample=27
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATAGTGACTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/27_*_1.fastq.gz raw/27_*_2.fastq.gz -o results/01_trimmed/27_R1.tr.fastq.gz -p results/01_trimmed/27_R2.tr.fastq.gz > qc/cutadapt/27_cutadapt.qc.txt 2> logs/cutadapt/27_trimmed.log
+[Thu May 18 16:53:58 2023]
+Finished job 90.
+44 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:53:58 2023]
+rule cutadapt:
+    output: results/01_trimmed/76_R1.tr.fastq.gz, results/01_trimmed/76_R2.tr.fastq.gz, qc/cutadapt/76_cutadapt.qc.txt
+    log: logs/cutadapt/76_trimmed.log
+    jobid: 76
+    reason: Code has changed since last execution
+    wildcards: sample=76
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTACATCTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/76_*_1.fastq.gz raw/76_*_2.fastq.gz -o results/01_trimmed/76_R1.tr.fastq.gz -p results/01_trimmed/76_R2.tr.fastq.gz > qc/cutadapt/76_cutadapt.qc.txt 2> logs/cutadapt/76_trimmed.log
+[Thu May 18 16:54:04 2023]
+Finished job 26.
+45 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:05 2023]
+rule cutadapt:
+    output: results/01_trimmed/16_R1.tr.fastq.gz, results/01_trimmed/16_R2.tr.fastq.gz, qc/cutadapt/16_cutadapt.qc.txt
+    log: logs/cutadapt/16_trimmed.log
+    jobid: 16
+    reason: Code has changed since last execution
+    wildcards: sample=16
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCCGTCTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/16_*_1.fastq.gz raw/16_*_2.fastq.gz -o results/01_trimmed/16_R1.tr.fastq.gz -p results/01_trimmed/16_R2.tr.fastq.gz > qc/cutadapt/16_cutadapt.qc.txt 2> logs/cutadapt/16_trimmed.log
+[Thu May 18 16:54:10 2023]
+Finished job 56.
+46 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:10 2023]
+rule cutadapt:
+    output: results/01_trimmed/46_R1.tr.fastq.gz, results/01_trimmed/46_R2.tr.fastq.gz, qc/cutadapt/46_cutadapt.qc.txt
+    log: logs/cutadapt/46_trimmed.log
+    jobid: 46
+    reason: Code has changed since last execution
+    wildcards: sample=46
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCAGATTCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/46_*_1.fastq.gz raw/46_*_2.fastq.gz -o results/01_trimmed/46_R1.tr.fastq.gz -p results/01_trimmed/46_R2.tr.fastq.gz > qc/cutadapt/46_cutadapt.qc.txt 2> logs/cutadapt/46_trimmed.log
+[Thu May 18 16:54:20 2023]
+Finished job 81.
+47 of 866 steps (5%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:20 2023]
+rule cutadapt:
+    output: results/01_trimmed/39_R1.tr.fastq.gz, results/01_trimmed/39_R2.tr.fastq.gz, qc/cutadapt/39_cutadapt.qc.txt
+    log: logs/cutadapt/39_trimmed.log
+    jobid: 39
+    reason: Code has changed since last execution
+    wildcards: sample=39
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCAGGAGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/39_*_1.fastq.gz raw/39_*_2.fastq.gz -o results/01_trimmed/39_R1.tr.fastq.gz -p results/01_trimmed/39_R2.tr.fastq.gz > qc/cutadapt/39_cutadapt.qc.txt 2> logs/cutadapt/39_trimmed.log
+[Thu May 18 16:54:24 2023]
+Finished job 48.
+48 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:24 2023]
+rule cutadapt:
+    output: results/01_trimmed/18_R1.tr.fastq.gz, results/01_trimmed/18_R2.tr.fastq.gz, qc/cutadapt/18_cutadapt.qc.txt
+    log: logs/cutadapt/18_trimmed.log
+    jobid: 18
+    reason: Code has changed since last execution
+    wildcards: sample=18
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTCTGTGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/18_*_1.fastq.gz raw/18_*_2.fastq.gz -o results/01_trimmed/18_R1.tr.fastq.gz -p results/01_trimmed/18_R2.tr.fastq.gz > qc/cutadapt/18_cutadapt.qc.txt 2> logs/cutadapt/18_trimmed.log
+[Thu May 18 16:54:28 2023]
+Finished job 58.
+49 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:28 2023]
+rule cutadapt:
+    output: results/01_trimmed/64_R1.tr.fastq.gz, results/01_trimmed/64_R2.tr.fastq.gz, qc/cutadapt/64_cutadapt.qc.txt
+    log: logs/cutadapt/64_trimmed.log
+    jobid: 64
+    reason: Code has changed since last execution
+    wildcards: sample=64
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCTCTTCAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/64_*_1.fastq.gz raw/64_*_2.fastq.gz -o results/01_trimmed/64_R1.tr.fastq.gz -p results/01_trimmed/64_R2.tr.fastq.gz > qc/cutadapt/64_cutadapt.qc.txt 2> logs/cutadapt/64_trimmed.log
+[Thu May 18 16:54:34 2023]
+Finished job 35.
+50 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:34 2023]
+rule cutadapt:
+    output: results/01_trimmed/55_R1.tr.fastq.gz, results/01_trimmed/55_R2.tr.fastq.gz, qc/cutadapt/55_cutadapt.qc.txt
+    log: logs/cutadapt/55_trimmed.log
+    jobid: 55
+    reason: Code has changed since last execution
+    wildcards: sample=55
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTCGCACCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/55_*_1.fastq.gz raw/55_*_2.fastq.gz -o results/01_trimmed/55_R1.tr.fastq.gz -p results/01_trimmed/55_R2.tr.fastq.gz > qc/cutadapt/55_cutadapt.qc.txt 2> logs/cutadapt/55_trimmed.log
+[Thu May 18 16:54:44 2023]
+Finished job 21.
+51 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:44 2023]
+rule cutadapt:
+    output: results/01_trimmed/38_R1.tr.fastq.gz, results/01_trimmed/38_R2.tr.fastq.gz, qc/cutadapt/38_cutadapt.qc.txt
+    log: logs/cutadapt/38_trimmed.log
+    jobid: 38
+    reason: Code has changed since last execution
+    wildcards: sample=38
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATCTCACGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/38_*_1.fastq.gz raw/38_*_2.fastq.gz -o results/01_trimmed/38_R1.tr.fastq.gz -p results/01_trimmed/38_R2.tr.fastq.gz > qc/cutadapt/38_cutadapt.qc.txt 2> logs/cutadapt/38_trimmed.log
+[Thu May 18 16:54:55 2023]
+Finished job 75.
+52 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:55 2023]
+rule cutadapt:
+    output: results/01_trimmed/23_R1.tr.fastq.gz, results/01_trimmed/23_R2.tr.fastq.gz, qc/cutadapt/23_cutadapt.qc.txt
+    log: logs/cutadapt/23_trimmed.log
+    jobid: 23
+    reason: Code has changed since last execution
+    wildcards: sample=23
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGCATAGTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/23_*_1.fastq.gz raw/23_*_2.fastq.gz -o results/01_trimmed/23_R1.tr.fastq.gz -p results/01_trimmed/23_R2.tr.fastq.gz > qc/cutadapt/23_cutadapt.qc.txt 2> logs/cutadapt/23_trimmed.log
+[Thu May 18 16:54:57 2023]
+Finished job 20.
+53 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:54:57 2023]
+rule cutadapt:
+    output: results/01_trimmed/83_R1.tr.fastq.gz, results/01_trimmed/83_R2.tr.fastq.gz, qc/cutadapt/83_cutadapt.qc.txt
+    log: logs/cutadapt/83_trimmed.log
+    jobid: 83
+    reason: Code has changed since last execution
+    wildcards: sample=83
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGCTCCTTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/83_*_1.fastq.gz raw/83_*_2.fastq.gz -o results/01_trimmed/83_R1.tr.fastq.gz -p results/01_trimmed/83_R2.tr.fastq.gz > qc/cutadapt/83_cutadapt.qc.txt 2> logs/cutadapt/83_trimmed.log
+[Thu May 18 16:55:01 2023]
+Finished job 96.
+54 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:01 2023]
+rule cutadapt:
+    output: results/01_trimmed/8_R1.tr.fastq.gz, results/01_trimmed/8_R2.tr.fastq.gz, qc/cutadapt/8_cutadapt.qc.txt
+    log: logs/cutadapt/8_trimmed.log
+    jobid: 8
+    reason: Code has changed since last execution
+    wildcards: sample=8
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTAGGCATAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/8_*_1.fastq.gz raw/8_*_2.fastq.gz -o results/01_trimmed/8_R1.tr.fastq.gz -p results/01_trimmed/8_R2.tr.fastq.gz > qc/cutadapt/8_cutadapt.qc.txt 2> logs/cutadapt/8_trimmed.log
+[Thu May 18 16:55:07 2023]
+Finished job 52.
+55 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:07 2023]
+rule cutadapt:
+    output: results/01_trimmed/85_R1.tr.fastq.gz, results/01_trimmed/85_R2.tr.fastq.gz, qc/cutadapt/85_cutadapt.qc.txt
+    log: logs/cutadapt/85_trimmed.log
+    jobid: 85
+    reason: Code has changed since last execution
+    wildcards: sample=85
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGAGGATGGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/85_*_1.fastq.gz raw/85_*_2.fastq.gz -o results/01_trimmed/85_R1.tr.fastq.gz -p results/01_trimmed/85_R2.tr.fastq.gz > qc/cutadapt/85_cutadapt.qc.txt 2> logs/cutadapt/85_trimmed.log
+[Thu May 18 16:55:20 2023]
+Finished job 19.
+56 of 866 steps (6%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:20 2023]
+rule cutadapt:
+    output: results/01_trimmed/25_R1.tr.fastq.gz, results/01_trimmed/25_R2.tr.fastq.gz, qc/cutadapt/25_cutadapt.qc.txt
+    log: logs/cutadapt/25_trimmed.log
+    jobid: 25
+    reason: Code has changed since last execution
+    wildcards: sample=25
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGCGATCTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/25_*_1.fastq.gz raw/25_*_2.fastq.gz -o results/01_trimmed/25_R1.tr.fastq.gz -p results/01_trimmed/25_R2.tr.fastq.gz > qc/cutadapt/25_cutadapt.qc.txt 2> logs/cutadapt/25_trimmed.log
+[Thu May 18 16:55:30 2023]
+Finished job 95.
+57 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:30 2023]
+rule cutadapt:
+    output: results/01_trimmed/71_R1.tr.fastq.gz, results/01_trimmed/71_R2.tr.fastq.gz, qc/cutadapt/71_cutadapt.qc.txt
+    log: logs/cutadapt/71_trimmed.log
+    jobid: 71
+    reason: Code has changed since last execution
+    wildcards: sample=71
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTGTCCTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/71_*_1.fastq.gz raw/71_*_2.fastq.gz -o results/01_trimmed/71_R1.tr.fastq.gz -p results/01_trimmed/71_R2.tr.fastq.gz > qc/cutadapt/71_cutadapt.qc.txt 2> logs/cutadapt/71_trimmed.log
+[Thu May 18 16:55:40 2023]
+Finished job 79.
+58 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:40 2023]
+rule cutadapt:
+    output: results/01_trimmed/49_R1.tr.fastq.gz, results/01_trimmed/49_R2.tr.fastq.gz, qc/cutadapt/49_cutadapt.qc.txt
+    log: logs/cutadapt/49_trimmed.log
+    jobid: 49
+    reason: Code has changed since last execution
+    wildcards: sample=49
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGTCTATCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/49_*_1.fastq.gz raw/49_*_2.fastq.gz -o results/01_trimmed/49_R1.tr.fastq.gz -p results/01_trimmed/49_R2.tr.fastq.gz > qc/cutadapt/49_cutadapt.qc.txt 2> logs/cutadapt/49_trimmed.log
+[Thu May 18 16:55:46 2023]
+Finished job 51.
+59 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:47 2023]
+rule cutadapt:
+    output: results/01_trimmed/84_R1.tr.fastq.gz, results/01_trimmed/84_R2.tr.fastq.gz, qc/cutadapt/84_cutadapt.qc.txt
+    log: logs/cutadapt/84_trimmed.log
+    jobid: 84
+    reason: Code has changed since last execution
+    wildcards: sample=84
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGTAAGGTGAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/84_*_1.fastq.gz raw/84_*_2.fastq.gz -o results/01_trimmed/84_R1.tr.fastq.gz -p results/01_trimmed/84_R2.tr.fastq.gz > qc/cutadapt/84_cutadapt.qc.txt 2> logs/cutadapt/84_trimmed.log
+[Thu May 18 16:55:54 2023]
+Finished job 45.
+60 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:54 2023]
+rule cutadapt:
+    output: results/01_trimmed/24_R1.tr.fastq.gz, results/01_trimmed/24_R2.tr.fastq.gz, qc/cutadapt/24_cutadapt.qc.txt
+    log: logs/cutadapt/24_trimmed.log
+    jobid: 24
+    reason: Code has changed since last execution
+    wildcards: sample=24
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATTGACTCTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/24_*_1.fastq.gz raw/24_*_2.fastq.gz -o results/01_trimmed/24_R1.tr.fastq.gz -p results/01_trimmed/24_R2.tr.fastq.gz > qc/cutadapt/24_cutadapt.qc.txt 2> logs/cutadapt/24_trimmed.log
+[Thu May 18 16:55:57 2023]
+Finished job 43.
+61 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:55:57 2023]
+rule cutadapt:
+    output: results/01_trimmed/47_R1.tr.fastq.gz, results/01_trimmed/47_R2.tr.fastq.gz, qc/cutadapt/47_cutadapt.qc.txt
+    log: logs/cutadapt/47_trimmed.log
+    jobid: 47
+    reason: Code has changed since last execution
+    wildcards: sample=47
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATACTAGTCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/47_*_1.fastq.gz raw/47_*_2.fastq.gz -o results/01_trimmed/47_R1.tr.fastq.gz -p results/01_trimmed/47_R2.tr.fastq.gz > qc/cutadapt/47_cutadapt.qc.txt 2> logs/cutadapt/47_trimmed.log
+[Thu May 18 16:56:01 2023]
+Finished job 8.
+62 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:56:01 2023]
+rule cutadapt:
+    output: results/01_trimmed/77_R1.tr.fastq.gz, results/01_trimmed/77_R2.tr.fastq.gz, qc/cutadapt/77_cutadapt.qc.txt
+    log: logs/cutadapt/77_trimmed.log
+    jobid: 77
+    reason: Code has changed since last execution
+    wildcards: sample=77
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A AGAGGTGCTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/77_*_1.fastq.gz raw/77_*_2.fastq.gz -o results/01_trimmed/77_R1.tr.fastq.gz -p results/01_trimmed/77_R2.tr.fastq.gz > qc/cutadapt/77_cutadapt.qc.txt 2> logs/cutadapt/77_trimmed.log
+[Thu May 18 16:56:02 2023]
+Finished job 12.
+63 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:56:02 2023]
+rule cutadapt:
+    output: results/01_trimmed/17_R1.tr.fastq.gz, results/01_trimmed/17_R2.tr.fastq.gz, qc/cutadapt/17_cutadapt.qc.txt
+    log: logs/cutadapt/17_trimmed.log
+    jobid: 17
+    reason: Code has changed since last execution
+    wildcards: sample=17
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGTACCTTAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/17_*_1.fastq.gz raw/17_*_2.fastq.gz -o results/01_trimmed/17_R1.tr.fastq.gz -p results/01_trimmed/17_R2.tr.fastq.gz > qc/cutadapt/17_cutadapt.qc.txt 2> logs/cutadapt/17_trimmed.log
+[Thu May 18 16:56:20 2023]
+Finished job 15.
+64 of 866 steps (7%) done
+Select jobs to execute...
+
+[Thu May 18 16:56:21 2023]
+rule cutadapt:
+    output: results/01_trimmed/53_R1.tr.fastq.gz, results/01_trimmed/53_R2.tr.fastq.gz, qc/cutadapt/53_cutadapt.qc.txt
+    log: logs/cutadapt/53_trimmed.log
+    jobid: 53
+    reason: Code has changed since last execution
+    wildcards: sample=53
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATACCGAGCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/53_*_1.fastq.gz raw/53_*_2.fastq.gz -o results/01_trimmed/53_R1.tr.fastq.gz -p results/01_trimmed/53_R2.tr.fastq.gz > qc/cutadapt/53_cutadapt.qc.txt 2> logs/cutadapt/53_trimmed.log
+[Thu May 18 16:56:22 2023]
+Finished job 72.
+65 of 866 steps (8%) done
+Select jobs to execute...
+
+[Thu May 18 16:56:22 2023]
+rule cutadapt:
+    output: results/01_trimmed/54_R1.tr.fastq.gz, results/01_trimmed/54_R2.tr.fastq.gz, qc/cutadapt/54_cutadapt.qc.txt
+    log: logs/cutadapt/54_trimmed.log
+    jobid: 54
+    reason: Code has changed since last execution
+    wildcards: sample=54
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGTTCTCCAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/54_*_1.fastq.gz raw/54_*_2.fastq.gz -o results/01_trimmed/54_R1.tr.fastq.gz -p results/01_trimmed/54_R2.tr.fastq.gz > qc/cutadapt/54_cutadapt.qc.txt 2> logs/cutadapt/54_trimmed.log
+[Thu May 18 16:56:24 2023]
+Finished job 46.
+66 of 866 steps (8%) done
+Select jobs to execute...
+
+[Thu May 18 16:56:24 2023]
+rule cutadapt:
+    output: results/01_trimmed/68_R1.tr.fastq.gz, results/01_trimmed/68_R2.tr.fastq.gz, qc/cutadapt/68_cutadapt.qc.txt
+    log: logs/cutadapt/68_trimmed.log
+    jobid: 68
+    reason: Code has changed since last execution
+    wildcards: sample=68
+    resources: tmpdir=/tmp
+
+cutadapt -u 9 -a AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA -A ATGCGTGAAAGATCGGAAGAGCGTCGTGTAGGGAAAGAGTG -O 3 -q 19 raw/68_*_1.fastq.gz raw/68_*_2.fastq.gz -o results/01_trimmed/68_R1.tr.fastq.gz -p results/01_trimmed/68_R2.tr.fastq.gz > qc/cutadapt/68_cutadapt.qc.txt 2> logs/cutadapt/68_trimmed.log
+[Thu May 18 16:56:35 2023]
+Finished job 87.
+67 of 866 steps (8%) done
+Select jobs to execute...
+[Thu May 18 16:56:37 2023]
+Finished job 42.
+68 of 866 steps (8%) done
+[Thu May 18 16:57:16 2023]
+Finished job 64.
+69 of 866 steps (8%) done
+[Thu May 18 16:57:20 2023]
+Finished job 41.
+70 of 866 steps (8%) done
+[Thu May 18 16:57:25 2023]
+Finished job 83.
+71 of 866 steps (8%) done
+[Thu May 18 16:57:31 2023]
+Finished job 23.
+72 of 866 steps (8%) done
+[Thu May 18 16:57:31 2023]
+Finished job 57.
+73 of 866 steps (8%) done
+[Thu May 18 16:57:47 2023]
+Finished job 76.
+74 of 866 steps (9%) done
+[Thu May 18 16:57:54 2023]
+Finished job 55.
+75 of 866 steps (9%) done
+[Thu May 18 16:57:56 2023]
+Finished job 65.
+76 of 866 steps (9%) done
+[Thu May 18 16:58:16 2023]
+Finished job 25.
+77 of 866 steps (9%) done
+[Thu May 18 16:58:17 2023]
+Finished job 80.
+78 of 866 steps (9%) done
+[Thu May 18 16:58:25 2023]
+Finished job 54.
+79 of 866 steps (9%) done
+[Thu May 18 16:58:28 2023]
+Finished job 85.
+80 of 866 steps (9%) done
+[Thu May 18 16:58:30 2023]
+Finished job 17.
+81 of 866 steps (9%) done
+[Thu May 18 16:58:33 2023]
+Finished job 18.
+82 of 866 steps (9%) done
+[Thu May 18 16:58:39 2023]
+Finished job 27.
+83 of 866 steps (10%) done
+[Thu May 18 16:58:48 2023]
+Finished job 50.
+84 of 866 steps (10%) done
+[Thu May 18 16:58:52 2023]
+Finished job 47.
+85 of 866 steps (10%) done
+[Thu May 18 16:58:54 2023]
+Finished job 71.
+86 of 866 steps (10%) done
+[Thu May 18 16:58:57 2023]
+Finished job 16.
+87 of 866 steps (10%) done
+[Thu May 18 16:59:02 2023]
+Finished job 77.
+88 of 866 steps (10%) done
+[Thu May 18 16:59:34 2023]
+Finished job 11.
+89 of 866 steps (10%) done
+[Thu May 18 16:59:51 2023]
+Finished job 53.
+90 of 866 steps (10%) done
+[Thu May 18 17:00:04 2023]
+Finished job 39.
+91 of 866 steps (11%) done
+[Thu May 18 17:00:11 2023]
+Finished job 49.
+92 of 866 steps (11%) done
+[Thu May 18 17:00:14 2023]
+Finished job 68.
+93 of 866 steps (11%) done
+[Thu May 18 17:00:33 2023]
+Finished job 38.
+94 of 866 steps (11%) done
+[Thu May 18 17:00:34 2023]
+Finished job 84.
+95 of 866 steps (11%) done
+[Thu May 18 17:01:18 2023]
+Finished job 24.
+96 of 866 steps (11%) done
+
+[Thu May 18 17:01:18 2023]
+rule bowtie2:
+    input: results/01_trimmed/14_R1.tr.fastq.gz, results/01_trimmed/14_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib14_MappedOn_tair10.bam
+    log: logs/bowtie2/lib14_MappedOn_tair10.log
+    jobid: 110
+    reason: Input files updated by another job: results/01_trimmed/14_R1.tr.fastq.gz, results/01_trimmed/14_R2.tr.fastq.gz
+    wildcards: sample=14, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/14_R1.tr.fastq.gz -2 results/01_trimmed/14_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib14_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib14_MappedOn_tair10.log
+[Thu May 18 17:03:52 2023]
+Finished job 110.
+97 of 866 steps (11%) done
+Select jobs to execute...
+
+[Thu May 18 17:03:52 2023]
+rule bowtie2:
+    input: results/01_trimmed/45_R1.tr.fastq.gz, results/01_trimmed/45_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib45_MappedOn_tair10.bam
+    log: logs/bowtie2/lib45_MappedOn_tair10.log
+    jobid: 141
+    reason: Input files updated by another job: results/01_trimmed/45_R2.tr.fastq.gz, results/01_trimmed/45_R1.tr.fastq.gz
+    wildcards: sample=45, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/45_R1.tr.fastq.gz -2 results/01_trimmed/45_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib45_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib45_MappedOn_tair10.log
+[Thu May 18 17:06:28 2023]
+Finished job 141.
+98 of 866 steps (11%) done
+Select jobs to execute...
+
+[Thu May 18 17:06:28 2023]
+rule bowtie2:
+    input: results/01_trimmed/75_R1.tr.fastq.gz, results/01_trimmed/75_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib75_MappedOn_tair10.bam
+    log: logs/bowtie2/lib75_MappedOn_tair10.log
+    jobid: 171
+    reason: Input files updated by another job: results/01_trimmed/75_R2.tr.fastq.gz, results/01_trimmed/75_R1.tr.fastq.gz
+    wildcards: sample=75, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/75_R1.tr.fastq.gz -2 results/01_trimmed/75_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib75_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib75_MappedOn_tair10.log
+[Thu May 18 17:08:25 2023]
+Finished job 171.
+99 of 866 steps (11%) done
+Select jobs to execute...
+
+[Thu May 18 17:08:25 2023]
+rule bowtie2:
+    input: results/01_trimmed/15_R1.tr.fastq.gz, results/01_trimmed/15_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib15_MappedOn_tair10.bam
+    log: logs/bowtie2/lib15_MappedOn_tair10.log
+    jobid: 111
+    reason: Input files updated by another job: results/01_trimmed/15_R1.tr.fastq.gz, results/01_trimmed/15_R2.tr.fastq.gz
+    wildcards: sample=15, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/15_R1.tr.fastq.gz -2 results/01_trimmed/15_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib15_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib15_MappedOn_tair10.log
+[Thu May 18 17:12:21 2023]
+Finished job 111.
+100 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:12:21 2023]
+rule bowtie2:
+    input: results/01_trimmed/46_R1.tr.fastq.gz, results/01_trimmed/46_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib46_MappedOn_tair10.bam
+    log: logs/bowtie2/lib46_MappedOn_tair10.log
+    jobid: 142
+    reason: Input files updated by another job: results/01_trimmed/46_R1.tr.fastq.gz, results/01_trimmed/46_R2.tr.fastq.gz
+    wildcards: sample=46, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/46_R1.tr.fastq.gz -2 results/01_trimmed/46_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib46_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib46_MappedOn_tair10.log
+[Thu May 18 17:13:44 2023]
+Finished job 142.
+101 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:13:44 2023]
+rule bowtie2:
+    input: results/01_trimmed/76_R1.tr.fastq.gz, results/01_trimmed/76_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib76_MappedOn_tair10.bam
+    log: logs/bowtie2/lib76_MappedOn_tair10.log
+    jobid: 172
+    reason: Input files updated by another job: results/01_trimmed/76_R2.tr.fastq.gz, results/01_trimmed/76_R1.tr.fastq.gz
+    wildcards: sample=76, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/76_R1.tr.fastq.gz -2 results/01_trimmed/76_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib76_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib76_MappedOn_tair10.log
+[Thu May 18 17:16:21 2023]
+Finished job 172.
+102 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:16:21 2023]
+rule bowtie2:
+    input: results/01_trimmed/16_R1.tr.fastq.gz, results/01_trimmed/16_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib16_MappedOn_tair10.bam
+    log: logs/bowtie2/lib16_MappedOn_tair10.log
+    jobid: 112
+    reason: Input files updated by another job: results/01_trimmed/16_R2.tr.fastq.gz, results/01_trimmed/16_R1.tr.fastq.gz
+    wildcards: sample=16, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/16_R1.tr.fastq.gz -2 results/01_trimmed/16_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib16_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib16_MappedOn_tair10.log
+[Thu May 18 17:19:30 2023]
+Finished job 112.
+103 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:19:30 2023]
+rule bowtie2:
+    input: results/01_trimmed/47_R1.tr.fastq.gz, results/01_trimmed/47_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib47_MappedOn_tair10.bam
+    log: logs/bowtie2/lib47_MappedOn_tair10.log
+    jobid: 143
+    reason: Input files updated by another job: results/01_trimmed/47_R2.tr.fastq.gz, results/01_trimmed/47_R1.tr.fastq.gz
+    wildcards: sample=47, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/47_R1.tr.fastq.gz -2 results/01_trimmed/47_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib47_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib47_MappedOn_tair10.log
+[Thu May 18 17:21:45 2023]
+Finished job 143.
+104 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:21:45 2023]
+rule bowtie2:
+    input: results/01_trimmed/17_R1.tr.fastq.gz, results/01_trimmed/17_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib17_MappedOn_tair10.bam
+    log: logs/bowtie2/lib17_MappedOn_tair10.log
+    jobid: 113
+    reason: Input files updated by another job: results/01_trimmed/17_R1.tr.fastq.gz, results/01_trimmed/17_R2.tr.fastq.gz
+    wildcards: sample=17, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/17_R1.tr.fastq.gz -2 results/01_trimmed/17_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib17_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib17_MappedOn_tair10.log
+[Thu May 18 17:23:29 2023]
+Finished job 113.
+105 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:23:29 2023]
+rule bowtie2:
+    input: results/01_trimmed/77_R1.tr.fastq.gz, results/01_trimmed/77_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib77_MappedOn_tair10.bam
+    log: logs/bowtie2/lib77_MappedOn_tair10.log
+    jobid: 173
+    reason: Input files updated by another job: results/01_trimmed/77_R1.tr.fastq.gz, results/01_trimmed/77_R2.tr.fastq.gz
+    wildcards: sample=77, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/77_R1.tr.fastq.gz -2 results/01_trimmed/77_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib77_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib77_MappedOn_tair10.log
+[Thu May 18 17:25:53 2023]
+Finished job 173.
+106 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:25:53 2023]
+rule bowtie2:
+    input: results/01_trimmed/48_R1.tr.fastq.gz, results/01_trimmed/48_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib48_MappedOn_tair10.bam
+    log: logs/bowtie2/lib48_MappedOn_tair10.log
+    jobid: 144
+    reason: Input files updated by another job: results/01_trimmed/48_R1.tr.fastq.gz, results/01_trimmed/48_R2.tr.fastq.gz
+    wildcards: sample=48, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/48_R1.tr.fastq.gz -2 results/01_trimmed/48_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib48_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib48_MappedOn_tair10.log
+[Thu May 18 17:28:49 2023]
+Finished job 144.
+107 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:28:49 2023]
+rule bowtie2:
+    input: results/01_trimmed/18_R1.tr.fastq.gz, results/01_trimmed/18_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib18_MappedOn_tair10.bam
+    log: logs/bowtie2/lib18_MappedOn_tair10.log
+    jobid: 114
+    reason: Input files updated by another job: results/01_trimmed/18_R1.tr.fastq.gz, results/01_trimmed/18_R2.tr.fastq.gz
+    wildcards: sample=18, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/18_R1.tr.fastq.gz -2 results/01_trimmed/18_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib18_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib18_MappedOn_tair10.log
+[Thu May 18 17:31:36 2023]
+Finished job 114.
+108 of 866 steps (12%) done
+Select jobs to execute...
+
+[Thu May 18 17:31:36 2023]
+rule bowtie2:
+    input: results/01_trimmed/78_R1.tr.fastq.gz, results/01_trimmed/78_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib78_MappedOn_tair10.bam
+    log: logs/bowtie2/lib78_MappedOn_tair10.log
+    jobid: 174
+    reason: Input files updated by another job: results/01_trimmed/78_R1.tr.fastq.gz, results/01_trimmed/78_R2.tr.fastq.gz
+    wildcards: sample=78, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/78_R1.tr.fastq.gz -2 results/01_trimmed/78_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib78_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib78_MappedOn_tair10.log
+[Thu May 18 17:34:05 2023]
+Finished job 174.
+109 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:34:05 2023]
+rule bowtie2:
+    input: results/01_trimmed/49_R1.tr.fastq.gz, results/01_trimmed/49_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib49_MappedOn_tair10.bam
+    log: logs/bowtie2/lib49_MappedOn_tair10.log
+    jobid: 145
+    reason: Input files updated by another job: results/01_trimmed/49_R1.tr.fastq.gz, results/01_trimmed/49_R2.tr.fastq.gz
+    wildcards: sample=49, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/49_R1.tr.fastq.gz -2 results/01_trimmed/49_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib49_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib49_MappedOn_tair10.log
+[Thu May 18 17:37:49 2023]
+Finished job 145.
+110 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:37:49 2023]
+rule bowtie2:
+    input: results/01_trimmed/19_R1.tr.fastq.gz, results/01_trimmed/19_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib19_MappedOn_tair10.bam
+    log: logs/bowtie2/lib19_MappedOn_tair10.log
+    jobid: 115
+    reason: Input files updated by another job: results/01_trimmed/19_R2.tr.fastq.gz, results/01_trimmed/19_R1.tr.fastq.gz
+    wildcards: sample=19, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/19_R1.tr.fastq.gz -2 results/01_trimmed/19_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib19_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib19_MappedOn_tair10.log
+[Thu May 18 17:40:26 2023]
+Finished job 115.
+111 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:40:26 2023]
+rule bowtie2:
+    input: results/01_trimmed/79_R1.tr.fastq.gz, results/01_trimmed/79_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib79_MappedOn_tair10.bam
+    log: logs/bowtie2/lib79_MappedOn_tair10.log
+    jobid: 175
+    reason: Input files updated by another job: results/01_trimmed/79_R2.tr.fastq.gz, results/01_trimmed/79_R1.tr.fastq.gz
+    wildcards: sample=79, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/79_R1.tr.fastq.gz -2 results/01_trimmed/79_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib79_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib79_MappedOn_tair10.log
+[Thu May 18 17:43:12 2023]
+Finished job 175.
+112 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:43:12 2023]
+rule samtools:
+    input: results/02_bowtie2/lib14_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib14_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib14_MappedOn_tair10_sort.log
+    jobid: 206
+    reason: Input files updated by another job: results/02_bowtie2/lib14_MappedOn_tair10.bam
+    wildcards: sample=14, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib14_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib14_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib14_MappedOn_tair10_sort.log;
+[Thu May 18 17:43:24 2023]
+Finished job 206.
+113 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:43:24 2023]
+rule bowtie2:
+    input: results/01_trimmed/50_R1.tr.fastq.gz, results/01_trimmed/50_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib50_MappedOn_tair10.bam
+    log: logs/bowtie2/lib50_MappedOn_tair10.log
+    jobid: 146
+    reason: Input files updated by another job: results/01_trimmed/50_R2.tr.fastq.gz, results/01_trimmed/50_R1.tr.fastq.gz
+    wildcards: sample=50, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/50_R1.tr.fastq.gz -2 results/01_trimmed/50_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib50_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib50_MappedOn_tair10.log
+[Thu May 18 17:47:25 2023]
+Finished job 146.
+114 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:47:25 2023]
+rule bowtie2:
+    input: results/01_trimmed/20_R1.tr.fastq.gz, results/01_trimmed/20_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib20_MappedOn_tair10.bam
+    log: logs/bowtie2/lib20_MappedOn_tair10.log
+    jobid: 116
+    reason: Input files updated by another job: results/01_trimmed/20_R2.tr.fastq.gz, results/01_trimmed/20_R1.tr.fastq.gz
+    wildcards: sample=20, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/20_R1.tr.fastq.gz -2 results/01_trimmed/20_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib20_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib20_MappedOn_tair10.log
+[Thu May 18 17:48:28 2023]
+Finished job 116.
+115 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:48:28 2023]
+rule bowtie2:
+    input: results/01_trimmed/80_R1.tr.fastq.gz, results/01_trimmed/80_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib80_MappedOn_tair10.bam
+    log: logs/bowtie2/lib80_MappedOn_tair10.log
+    jobid: 176
+    reason: Input files updated by another job: results/01_trimmed/80_R1.tr.fastq.gz, results/01_trimmed/80_R2.tr.fastq.gz
+    wildcards: sample=80, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/80_R1.tr.fastq.gz -2 results/01_trimmed/80_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib80_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib80_MappedOn_tair10.log
+[Thu May 18 17:51:57 2023]
+Finished job 176.
+116 of 866 steps (13%) done
+Select jobs to execute...
+
+[Thu May 18 17:51:57 2023]
+rule samtools:
+    input: results/02_bowtie2/lib75_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib75_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib75_MappedOn_tair10_sort.log
+    jobid: 267
+    reason: Input files updated by another job: results/02_bowtie2/lib75_MappedOn_tair10.bam
+    wildcards: sample=75, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib75_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib75_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib75_MappedOn_tair10_sort.log;
+[Thu May 18 17:52:06 2023]
+Finished job 267.
+117 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 17:52:06 2023]
+rule bowtie2:
+    input: results/01_trimmed/51_R1.tr.fastq.gz, results/01_trimmed/51_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib51_MappedOn_tair10.bam
+    log: logs/bowtie2/lib51_MappedOn_tair10.log
+    jobid: 147
+    reason: Input files updated by another job: results/01_trimmed/51_R2.tr.fastq.gz, results/01_trimmed/51_R1.tr.fastq.gz
+    wildcards: sample=51, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/51_R1.tr.fastq.gz -2 results/01_trimmed/51_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib51_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib51_MappedOn_tair10.log
+[Thu May 18 17:56:13 2023]
+Finished job 147.
+118 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 17:56:13 2023]
+rule samtools:
+    input: results/02_bowtie2/lib15_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib15_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib15_MappedOn_tair10_sort.log
+    jobid: 207
+    reason: Input files updated by another job: results/02_bowtie2/lib15_MappedOn_tair10.bam
+    wildcards: sample=15, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib15_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib15_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib15_MappedOn_tair10_sort.log;
+[Thu May 18 17:56:32 2023]
+Finished job 207.
+119 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 17:56:32 2023]
+rule bowtie2:
+    input: results/01_trimmed/81_R1.tr.fastq.gz, results/01_trimmed/81_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib81_MappedOn_tair10.bam
+    log: logs/bowtie2/lib81_MappedOn_tair10.log
+    jobid: 177
+    reason: Input files updated by another job: results/01_trimmed/81_R1.tr.fastq.gz, results/01_trimmed/81_R2.tr.fastq.gz
+    wildcards: sample=81, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/81_R1.tr.fastq.gz -2 results/01_trimmed/81_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib81_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib81_MappedOn_tair10.log
+[Thu May 18 17:58:55 2023]
+Finished job 177.
+120 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 17:58:55 2023]
+rule bowtie2:
+    input: results/01_trimmed/21_R1.tr.fastq.gz, results/01_trimmed/21_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib21_MappedOn_tair10.bam
+    log: logs/bowtie2/lib21_MappedOn_tair10.log
+    jobid: 117
+    reason: Input files updated by another job: results/01_trimmed/21_R2.tr.fastq.gz, results/01_trimmed/21_R1.tr.fastq.gz
+    wildcards: sample=21, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/21_R1.tr.fastq.gz -2 results/01_trimmed/21_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib21_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib21_MappedOn_tair10.log
+[Thu May 18 18:01:31 2023]
+Finished job 117.
+121 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 18:01:31 2023]
+rule samtools:
+    input: results/02_bowtie2/lib45_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib45_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib45_MappedOn_tair10_sort.log
+    jobid: 237
+    reason: Input files updated by another job: results/02_bowtie2/lib45_MappedOn_tair10.bam
+    wildcards: sample=45, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib45_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib45_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib45_MappedOn_tair10_sort.log;
+[Thu May 18 18:01:44 2023]
+Finished job 237.
+122 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 18:01:44 2023]
+rule samtools:
+    input: results/02_bowtie2/lib76_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib76_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib76_MappedOn_tair10_sort.log
+    jobid: 268
+    reason: Input files updated by another job: results/02_bowtie2/lib76_MappedOn_tair10.bam
+    wildcards: sample=76, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib76_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib76_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib76_MappedOn_tair10_sort.log;
+[Thu May 18 18:01:57 2023]
+Finished job 268.
+123 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 18:01:57 2023]
+rule bowtie2:
+    input: results/01_trimmed/52_R1.tr.fastq.gz, results/01_trimmed/52_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib52_MappedOn_tair10.bam
+    log: logs/bowtie2/lib52_MappedOn_tair10.log
+    jobid: 148
+    reason: Input files updated by another job: results/01_trimmed/52_R2.tr.fastq.gz, results/01_trimmed/52_R1.tr.fastq.gz
+    wildcards: sample=52, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/52_R1.tr.fastq.gz -2 results/01_trimmed/52_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib52_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib52_MappedOn_tair10.log
+[Thu May 18 18:05:58 2023]
+Finished job 148.
+124 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 18:05:58 2023]
+rule samtools:
+    input: results/02_bowtie2/lib16_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib16_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib16_MappedOn_tair10_sort.log
+    jobid: 208
+    reason: Input files updated by another job: results/02_bowtie2/lib16_MappedOn_tair10.bam
+    wildcards: sample=16, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib16_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib16_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib16_MappedOn_tair10_sort.log;
+[Thu May 18 18:06:15 2023]
+Finished job 208.
+125 of 866 steps (14%) done
+Select jobs to execute...
+
+[Thu May 18 18:06:15 2023]
+rule bowtie2:
+    input: results/01_trimmed/82_R1.tr.fastq.gz, results/01_trimmed/82_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib82_MappedOn_tair10.bam
+    log: logs/bowtie2/lib82_MappedOn_tair10.log
+    jobid: 178
+    reason: Input files updated by another job: results/01_trimmed/82_R2.tr.fastq.gz, results/01_trimmed/82_R1.tr.fastq.gz
+    wildcards: sample=82, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/82_R1.tr.fastq.gz -2 results/01_trimmed/82_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib82_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib82_MappedOn_tair10.log
+[Thu May 18 18:07:28 2023]
+Finished job 178.
+126 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:07:28 2023]
+rule bowtie2:
+    input: results/01_trimmed/22_R1.tr.fastq.gz, results/01_trimmed/22_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib22_MappedOn_tair10.bam
+    log: logs/bowtie2/lib22_MappedOn_tair10.log
+    jobid: 118
+    reason: Input files updated by another job: results/01_trimmed/22_R1.tr.fastq.gz, results/01_trimmed/22_R2.tr.fastq.gz
+    wildcards: sample=22, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/22_R1.tr.fastq.gz -2 results/01_trimmed/22_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib22_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib22_MappedOn_tair10.log
+[Thu May 18 18:09:16 2023]
+Finished job 118.
+127 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:09:16 2023]
+rule samtools:
+    input: results/02_bowtie2/lib46_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib46_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib46_MappedOn_tair10_sort.log
+    jobid: 238
+    reason: Input files updated by another job: results/02_bowtie2/lib46_MappedOn_tair10.bam
+    wildcards: sample=46, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib46_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib46_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib46_MappedOn_tair10_sort.log;
+[Thu May 18 18:09:23 2023]
+Finished job 238.
+128 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:09:23 2023]
+rule samtools:
+    input: results/02_bowtie2/lib17_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib17_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib17_MappedOn_tair10_sort.log
+    jobid: 209
+    reason: Input files updated by another job: results/02_bowtie2/lib17_MappedOn_tair10.bam
+    wildcards: sample=17, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib17_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib17_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib17_MappedOn_tair10_sort.log;
+[Thu May 18 18:09:31 2023]
+Finished job 209.
+129 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:09:32 2023]
+rule bowtie2:
+    input: results/01_trimmed/53_R1.tr.fastq.gz, results/01_trimmed/53_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib53_MappedOn_tair10.bam
+    log: logs/bowtie2/lib53_MappedOn_tair10.log
+    jobid: 149
+    reason: Input files updated by another job: results/01_trimmed/53_R1.tr.fastq.gz, results/01_trimmed/53_R2.tr.fastq.gz
+    wildcards: sample=53, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/53_R1.tr.fastq.gz -2 results/01_trimmed/53_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib53_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib53_MappedOn_tair10.log
+[Thu May 18 18:12:27 2023]
+Finished job 149.
+130 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:12:27 2023]
+rule samtools:
+    input: results/02_bowtie2/lib77_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib77_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib77_MappedOn_tair10_sort.log
+    jobid: 269
+    reason: Input files updated by another job: results/02_bowtie2/lib77_MappedOn_tair10.bam
+    wildcards: sample=77, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib77_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib77_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib77_MappedOn_tair10_sort.log;
+[Thu May 18 18:12:38 2023]
+Finished job 269.
+131 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:12:38 2023]
+rule bowtie2:
+    input: results/01_trimmed/23_R1.tr.fastq.gz, results/01_trimmed/23_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib23_MappedOn_tair10.bam
+    log: logs/bowtie2/lib23_MappedOn_tair10.log
+    jobid: 119
+    reason: Input files updated by another job: results/01_trimmed/23_R2.tr.fastq.gz, results/01_trimmed/23_R1.tr.fastq.gz
+    wildcards: sample=23, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/23_R1.tr.fastq.gz -2 results/01_trimmed/23_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib23_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib23_MappedOn_tair10.log
+[Thu May 18 18:14:13 2023]
+Finished job 119.
+132 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:14:13 2023]
+rule bowtie2:
+    input: results/01_trimmed/83_R1.tr.fastq.gz, results/01_trimmed/83_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib83_MappedOn_tair10.bam
+    log: logs/bowtie2/lib83_MappedOn_tair10.log
+    jobid: 179
+    reason: Input files updated by another job: results/01_trimmed/83_R1.tr.fastq.gz, results/01_trimmed/83_R2.tr.fastq.gz
+    wildcards: sample=83, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/83_R1.tr.fastq.gz -2 results/01_trimmed/83_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib83_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib83_MappedOn_tair10.log
+[Thu May 18 18:15:46 2023]
+Finished job 179.
+133 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:15:46 2023]
+rule bowtie2:
+    input: results/01_trimmed/74_R1.tr.fastq.gz, results/01_trimmed/74_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib74_MappedOn_tair10.bam
+    log: logs/bowtie2/lib74_MappedOn_tair10.log
+    jobid: 170
+    reason: Input files updated by another job: results/01_trimmed/74_R1.tr.fastq.gz, results/01_trimmed/74_R2.tr.fastq.gz
+    wildcards: sample=74, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/74_R1.tr.fastq.gz -2 results/01_trimmed/74_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib74_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib74_MappedOn_tair10.log
+[Thu May 18 18:18:08 2023]
+Finished job 170.
+134 of 866 steps (15%) done
+Select jobs to execute...
+
+[Thu May 18 18:18:09 2023]
+rule samtools:
+    input: results/02_bowtie2/lib74_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib74_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib74_MappedOn_tair10_sort.log
+    jobid: 266
+    reason: Input files updated by another job: results/02_bowtie2/lib74_MappedOn_tair10.bam
+    wildcards: sample=74, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib74_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib74_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib74_MappedOn_tair10_sort.log;
+[Thu May 18 18:18:20 2023]
+Finished job 266.
+135 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:18:20 2023]
+rule samtools:
+    input: results/02_bowtie2/lib47_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib47_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib47_MappedOn_tair10_sort.log
+    jobid: 239
+    reason: Input files updated by another job: results/02_bowtie2/lib47_MappedOn_tair10.bam
+    wildcards: sample=47, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib47_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib47_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib47_MappedOn_tair10_sort.log;
+[Thu May 18 18:18:31 2023]
+Finished job 239.
+136 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:18:31 2023]
+rule samtools:
+    input: results/02_bowtie2/lib78_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib78_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib78_MappedOn_tair10_sort.log
+    jobid: 270
+    reason: Input files updated by another job: results/02_bowtie2/lib78_MappedOn_tair10.bam
+    wildcards: sample=78, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib78_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib78_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib78_MappedOn_tair10_sort.log;
+[Thu May 18 18:18:43 2023]
+Finished job 270.
+137 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:18:43 2023]
+rule samtools:
+    input: results/02_bowtie2/lib18_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib18_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib18_MappedOn_tair10_sort.log
+    jobid: 210
+    reason: Input files updated by another job: results/02_bowtie2/lib18_MappedOn_tair10.bam
+    wildcards: sample=18, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib18_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib18_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib18_MappedOn_tair10_sort.log;
+[Thu May 18 18:18:57 2023]
+Finished job 210.
+138 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:18:57 2023]
+rule bowtie2:
+    input: results/01_trimmed/54_R1.tr.fastq.gz, results/01_trimmed/54_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib54_MappedOn_tair10.bam
+    log: logs/bowtie2/lib54_MappedOn_tair10.log
+    jobid: 150
+    reason: Input files updated by another job: results/01_trimmed/54_R2.tr.fastq.gz, results/01_trimmed/54_R1.tr.fastq.gz
+    wildcards: sample=54, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/54_R1.tr.fastq.gz -2 results/01_trimmed/54_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib54_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib54_MappedOn_tair10.log
+[Thu May 18 18:20:30 2023]
+Finished job 150.
+139 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:20:30 2023]
+rule bowtie2:
+    input: results/01_trimmed/84_R1.tr.fastq.gz, results/01_trimmed/84_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib84_MappedOn_tair10.bam
+    log: logs/bowtie2/lib84_MappedOn_tair10.log
+    jobid: 180
+    reason: Input files updated by another job: results/01_trimmed/84_R2.tr.fastq.gz, results/01_trimmed/84_R1.tr.fastq.gz
+    wildcards: sample=84, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/84_R1.tr.fastq.gz -2 results/01_trimmed/84_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib84_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib84_MappedOn_tair10.log
+[Thu May 18 18:24:40 2023]
+Finished job 180.
+140 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:24:40 2023]
+rule bowtie2:
+    input: results/01_trimmed/24_R1.tr.fastq.gz, results/01_trimmed/24_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib24_MappedOn_tair10.bam
+    log: logs/bowtie2/lib24_MappedOn_tair10.log
+    jobid: 120
+    reason: Input files updated by another job: results/01_trimmed/24_R2.tr.fastq.gz, results/01_trimmed/24_R1.tr.fastq.gz
+    wildcards: sample=24, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/24_R1.tr.fastq.gz -2 results/01_trimmed/24_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib24_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib24_MappedOn_tair10.log
+[Thu May 18 18:29:04 2023]
+Finished job 120.
+141 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:29:05 2023]
+rule samtools:
+    input: results/02_bowtie2/lib48_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib48_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib48_MappedOn_tair10_sort.log
+    jobid: 240
+    reason: Input files updated by another job: results/02_bowtie2/lib48_MappedOn_tair10.bam
+    wildcards: sample=48, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib48_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib48_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib48_MappedOn_tair10_sort.log;
+[Thu May 18 18:29:19 2023]
+Finished job 240.
+142 of 866 steps (16%) done
+Select jobs to execute...
+
+[Thu May 18 18:29:19 2023]
+rule samtools:
+    input: results/02_bowtie2/lib79_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib79_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib79_MappedOn_tair10_sort.log
+    jobid: 271
+    reason: Input files updated by another job: results/02_bowtie2/lib79_MappedOn_tair10.bam
+    wildcards: sample=79, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib79_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib79_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib79_MappedOn_tair10_sort.log;
+[Thu May 18 18:29:32 2023]
+Finished job 271.
+143 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:29:32 2023]
+rule samtools:
+    input: results/02_bowtie2/lib19_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib19_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib19_MappedOn_tair10_sort.log
+    jobid: 211
+    reason: Input files updated by another job: results/02_bowtie2/lib19_MappedOn_tair10.bam
+    wildcards: sample=19, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib19_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib19_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib19_MappedOn_tair10_sort.log;
+[Thu May 18 18:29:44 2023]
+Finished job 211.
+144 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:29:44 2023]
+rule bowtie2:
+    input: results/01_trimmed/55_R1.tr.fastq.gz, results/01_trimmed/55_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib55_MappedOn_tair10.bam
+    log: logs/bowtie2/lib55_MappedOn_tair10.log
+    jobid: 151
+    reason: Input files updated by another job: results/01_trimmed/55_R1.tr.fastq.gz, results/01_trimmed/55_R2.tr.fastq.gz
+    wildcards: sample=55, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/55_R1.tr.fastq.gz -2 results/01_trimmed/55_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib55_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib55_MappedOn_tair10.log
+[Thu May 18 18:32:02 2023]
+Finished job 151.
+145 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:32:02 2023]
+rule bowtie2:
+    input: results/01_trimmed/25_R1.tr.fastq.gz, results/01_trimmed/25_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib25_MappedOn_tair10.bam
+    log: logs/bowtie2/lib25_MappedOn_tair10.log
+    jobid: 121
+    reason: Input files updated by another job: results/01_trimmed/25_R1.tr.fastq.gz, results/01_trimmed/25_R2.tr.fastq.gz
+    wildcards: sample=25, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/25_R1.tr.fastq.gz -2 results/01_trimmed/25_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib25_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib25_MappedOn_tair10.log
+[Thu May 18 18:33:59 2023]
+Finished job 121.
+146 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:33:59 2023]
+rule bowtie2:
+    input: results/01_trimmed/65_R1.tr.fastq.gz, results/01_trimmed/65_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib65_MappedOn_tair10.bam
+    log: logs/bowtie2/lib65_MappedOn_tair10.log
+    jobid: 161
+    reason: Input files updated by another job: results/01_trimmed/65_R2.tr.fastq.gz, results/01_trimmed/65_R1.tr.fastq.gz
+    wildcards: sample=65, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/65_R1.tr.fastq.gz -2 results/01_trimmed/65_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib65_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib65_MappedOn_tair10.log
+[Thu May 18 18:36:49 2023]
+Finished job 161.
+147 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:36:49 2023]
+rule bowtie2:
+    input: results/01_trimmed/96_R1.tr.fastq.gz, results/01_trimmed/96_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib96_MappedOn_tair10.bam
+    log: logs/bowtie2/lib96_MappedOn_tair10.log
+    jobid: 192
+    reason: Missing output files: results/02_bowtie2/lib96_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/96_R2.tr.fastq.gz, results/01_trimmed/96_R1.tr.fastq.gz
+    wildcards: sample=96, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/96_R1.tr.fastq.gz -2 results/01_trimmed/96_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib96_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib96_MappedOn_tair10.log
+[Thu May 18 18:39:42 2023]
+Finished job 192.
+148 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:39:42 2023]
+rule bowtie2:
+    input: results/01_trimmed/36_R1.tr.fastq.gz, results/01_trimmed/36_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib36_MappedOn_tair10.bam
+    log: logs/bowtie2/lib36_MappedOn_tair10.log
+    jobid: 132
+    reason: Missing output files: results/02_bowtie2/lib36_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/36_R2.tr.fastq.gz, results/01_trimmed/36_R1.tr.fastq.gz
+    wildcards: sample=36, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/36_R1.tr.fastq.gz -2 results/01_trimmed/36_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib36_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib36_MappedOn_tair10.log
+[Thu May 18 18:41:08 2023]
+Finished job 132.
+149 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:41:08 2023]
+rule bowtie2:
+    input: results/01_trimmed/66_R1.tr.fastq.gz, results/01_trimmed/66_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib66_MappedOn_tair10.bam
+    log: logs/bowtie2/lib66_MappedOn_tair10.log
+    jobid: 162
+    reason: Missing output files: results/02_bowtie2/lib66_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/66_R1.tr.fastq.gz, results/01_trimmed/66_R2.tr.fastq.gz
+    wildcards: sample=66, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/66_R1.tr.fastq.gz -2 results/01_trimmed/66_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib66_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib66_MappedOn_tair10.log
+[Thu May 18 18:44:01 2023]
+Finished job 162.
+150 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:44:01 2023]
+rule bowtie2:
+    input: results/01_trimmed/6_R1.tr.fastq.gz, results/01_trimmed/6_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib6_MappedOn_tair10.bam
+    log: logs/bowtie2/lib6_MappedOn_tair10.log
+    jobid: 102
+    reason: Missing output files: results/02_bowtie2/lib6_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/6_R2.tr.fastq.gz, results/01_trimmed/6_R1.tr.fastq.gz
+    wildcards: sample=6, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/6_R1.tr.fastq.gz -2 results/01_trimmed/6_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib6_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib6_MappedOn_tair10.log
+[Thu May 18 18:45:57 2023]
+Finished job 102.
+151 of 866 steps (17%) done
+Select jobs to execute...
+
+[Thu May 18 18:45:57 2023]
+rule bowtie2:
+    input: results/01_trimmed/37_R1.tr.fastq.gz, results/01_trimmed/37_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib37_MappedOn_tair10.bam
+    log: logs/bowtie2/lib37_MappedOn_tair10.log
+    jobid: 133
+    reason: Missing output files: results/02_bowtie2/lib37_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/37_R2.tr.fastq.gz, results/01_trimmed/37_R1.tr.fastq.gz
+    wildcards: sample=37, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/37_R1.tr.fastq.gz -2 results/01_trimmed/37_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib37_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib37_MappedOn_tair10.log
+[Thu May 18 18:49:08 2023]
+Finished job 133.
+152 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 18:49:08 2023]
+rule bowtie2:
+    input: results/01_trimmed/7_R1.tr.fastq.gz, results/01_trimmed/7_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib7_MappedOn_tair10.bam
+    log: logs/bowtie2/lib7_MappedOn_tair10.log
+    jobid: 103
+    reason: Missing output files: results/02_bowtie2/lib7_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/7_R2.tr.fastq.gz, results/01_trimmed/7_R1.tr.fastq.gz
+    wildcards: sample=7, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/7_R1.tr.fastq.gz -2 results/01_trimmed/7_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib7_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib7_MappedOn_tair10.log
+[Thu May 18 18:51:15 2023]
+Finished job 103.
+153 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 18:51:15 2023]
+rule bowtie2:
+    input: results/01_trimmed/67_R1.tr.fastq.gz, results/01_trimmed/67_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib67_MappedOn_tair10.bam
+    log: logs/bowtie2/lib67_MappedOn_tair10.log
+    jobid: 163
+    reason: Missing output files: results/02_bowtie2/lib67_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/67_R1.tr.fastq.gz, results/01_trimmed/67_R2.tr.fastq.gz
+    wildcards: sample=67, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/67_R1.tr.fastq.gz -2 results/01_trimmed/67_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib67_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib67_MappedOn_tair10.log
+[Thu May 18 18:53:39 2023]
+Finished job 163.
+154 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 18:53:39 2023]
+rule bowtie2:
+    input: results/01_trimmed/38_R1.tr.fastq.gz, results/01_trimmed/38_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib38_MappedOn_tair10.bam
+    log: logs/bowtie2/lib38_MappedOn_tair10.log
+    jobid: 134
+    reason: Missing output files: results/02_bowtie2/lib38_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/38_R1.tr.fastq.gz, results/01_trimmed/38_R2.tr.fastq.gz
+    wildcards: sample=38, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/38_R1.tr.fastq.gz -2 results/01_trimmed/38_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib38_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib38_MappedOn_tair10.log
+[Thu May 18 18:58:08 2023]
+Finished job 134.
+155 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 18:58:08 2023]
+rule bowtie2:
+    input: results/01_trimmed/8_R1.tr.fastq.gz, results/01_trimmed/8_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib8_MappedOn_tair10.bam
+    log: logs/bowtie2/lib8_MappedOn_tair10.log
+    jobid: 104
+    reason: Missing output files: results/02_bowtie2/lib8_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/8_R2.tr.fastq.gz, results/01_trimmed/8_R1.tr.fastq.gz
+    wildcards: sample=8, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/8_R1.tr.fastq.gz -2 results/01_trimmed/8_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib8_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib8_MappedOn_tair10.log
+[Thu May 18 18:58:46 2023]
+Finished job 104.
+156 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 18:58:46 2023]
+rule bowtie2:
+    input: results/01_trimmed/68_R1.tr.fastq.gz, results/01_trimmed/68_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib68_MappedOn_tair10.bam
+    log: logs/bowtie2/lib68_MappedOn_tair10.log
+    jobid: 164
+    reason: Missing output files: results/02_bowtie2/lib68_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/68_R1.tr.fastq.gz, results/01_trimmed/68_R2.tr.fastq.gz
+    wildcards: sample=68, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/68_R1.tr.fastq.gz -2 results/01_trimmed/68_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib68_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib68_MappedOn_tair10.log
+[Thu May 18 19:02:01 2023]
+Finished job 164.
+157 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 19:02:01 2023]
+rule bowtie2:
+    input: results/01_trimmed/39_R1.tr.fastq.gz, results/01_trimmed/39_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib39_MappedOn_tair10.bam
+    log: logs/bowtie2/lib39_MappedOn_tair10.log
+    jobid: 135
+    reason: Missing output files: results/02_bowtie2/lib39_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/39_R2.tr.fastq.gz, results/01_trimmed/39_R1.tr.fastq.gz
+    wildcards: sample=39, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/39_R1.tr.fastq.gz -2 results/01_trimmed/39_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib39_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib39_MappedOn_tair10.log
+[Thu May 18 19:06:26 2023]
+Finished job 135.
+158 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 19:06:26 2023]
+rule bowtie2:
+    input: results/01_trimmed/9_R1.tr.fastq.gz, results/01_trimmed/9_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib9_MappedOn_tair10.bam
+    log: logs/bowtie2/lib9_MappedOn_tair10.log
+    jobid: 105
+    reason: Missing output files: results/02_bowtie2/lib9_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/9_R1.tr.fastq.gz, results/01_trimmed/9_R2.tr.fastq.gz
+    wildcards: sample=9, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/9_R1.tr.fastq.gz -2 results/01_trimmed/9_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib9_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib9_MappedOn_tair10.log
+[Thu May 18 19:08:32 2023]
+Finished job 105.
+159 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 19:08:32 2023]
+rule bowtie2:
+    input: results/01_trimmed/69_R1.tr.fastq.gz, results/01_trimmed/69_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib69_MappedOn_tair10.bam
+    log: logs/bowtie2/lib69_MappedOn_tair10.log
+    jobid: 165
+    reason: Missing output files: results/02_bowtie2/lib69_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/69_R2.tr.fastq.gz, results/01_trimmed/69_R1.tr.fastq.gz
+    wildcards: sample=69, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/69_R1.tr.fastq.gz -2 results/01_trimmed/69_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib69_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib69_MappedOn_tair10.log
+[Thu May 18 19:11:07 2023]
+Finished job 165.
+160 of 866 steps (18%) done
+Select jobs to execute...
+
+[Thu May 18 19:11:07 2023]
+rule bowtie2:
+    input: results/01_trimmed/40_R1.tr.fastq.gz, results/01_trimmed/40_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib40_MappedOn_tair10.bam
+    log: logs/bowtie2/lib40_MappedOn_tair10.log
+    jobid: 136
+    reason: Missing output files: results/02_bowtie2/lib40_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/40_R2.tr.fastq.gz, results/01_trimmed/40_R1.tr.fastq.gz
+    wildcards: sample=40, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/40_R1.tr.fastq.gz -2 results/01_trimmed/40_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib40_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib40_MappedOn_tair10.log
+[Thu May 18 19:14:56 2023]
+Finished job 136.
+161 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:14:56 2023]
+rule bowtie2:
+    input: results/01_trimmed/70_R1.tr.fastq.gz, results/01_trimmed/70_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib70_MappedOn_tair10.bam
+    log: logs/bowtie2/lib70_MappedOn_tair10.log
+    jobid: 166
+    reason: Missing output files: results/02_bowtie2/lib70_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/70_R1.tr.fastq.gz, results/01_trimmed/70_R2.tr.fastq.gz
+    wildcards: sample=70, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/70_R1.tr.fastq.gz -2 results/01_trimmed/70_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib70_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib70_MappedOn_tair10.log
+[Thu May 18 19:16:50 2023]
+Finished job 166.
+162 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:16:51 2023]
+rule bowtie2:
+    input: results/01_trimmed/10_R1.tr.fastq.gz, results/01_trimmed/10_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib10_MappedOn_tair10.bam
+    log: logs/bowtie2/lib10_MappedOn_tair10.log
+    jobid: 106
+    reason: Missing output files: results/02_bowtie2/lib10_MappedOn_tair10.bam; Input files updated by another job: results/01_trimmed/10_R2.tr.fastq.gz, results/01_trimmed/10_R1.tr.fastq.gz
+    wildcards: sample=10, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/10_R1.tr.fastq.gz -2 results/01_trimmed/10_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib10_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib10_MappedOn_tair10.log
+[Thu May 18 19:20:21 2023]
+Finished job 106.
+163 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:20:21 2023]
+rule samtools:
+    input: results/02_bowtie2/lib65_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib65_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib65_MappedOn_tair10_sort.log
+    jobid: 257
+    reason: Missing output files: results/02_bowtie2/filtered/lib65_MappedOn_tair10_sort.bam; Input files updated by another job: results/02_bowtie2/lib65_MappedOn_tair10.bam
+    wildcards: sample=65, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib65_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib65_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib65_MappedOn_tair10_sort.log;
+[Thu May 18 19:20:34 2023]
+Finished job 257.
+164 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:20:34 2023]
+rule bowtie2:
+    input: results/01_trimmed/85_R1.tr.fastq.gz, results/01_trimmed/85_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib85_MappedOn_tair10.bam
+    log: logs/bowtie2/lib85_MappedOn_tair10.log
+    jobid: 181
+    reason: Input files updated by another job: results/01_trimmed/85_R2.tr.fastq.gz, results/01_trimmed/85_R1.tr.fastq.gz
+    wildcards: sample=85, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/85_R1.tr.fastq.gz -2 results/01_trimmed/85_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib85_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib85_MappedOn_tair10.log
+[Thu May 18 19:22:55 2023]
+Finished job 181.
+165 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:22:55 2023]
+rule samtools:
+    input: results/02_bowtie2/lib49_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib49_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib49_MappedOn_tair10_sort.log
+    jobid: 241
+    reason: Input files updated by another job: results/02_bowtie2/lib49_MappedOn_tair10.bam
+    wildcards: sample=49, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib49_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib49_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib49_MappedOn_tair10_sort.log;
+[Thu May 18 19:23:13 2023]
+Finished job 241.
+166 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:23:13 2023]
+rule samtools:
+    input: results/02_bowtie2/lib80_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib80_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib80_MappedOn_tair10_sort.log
+    jobid: 272
+    reason: Input files updated by another job: results/02_bowtie2/lib80_MappedOn_tair10.bam
+    wildcards: sample=80, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib80_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib80_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib80_MappedOn_tair10_sort.log;
+[Thu May 18 19:23:29 2023]
+Finished job 272.
+167 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:23:29 2023]
+rule samtools:
+    input: results/02_bowtie2/lib20_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib20_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib20_MappedOn_tair10_sort.log
+    jobid: 212
+    reason: Input files updated by another job: results/02_bowtie2/lib20_MappedOn_tair10.bam
+    wildcards: sample=20, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib20_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib20_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib20_MappedOn_tair10_sort.log;
+[Thu May 18 19:23:36 2023]
+Finished job 212.
+168 of 866 steps (19%) done
+Select jobs to execute...
+
+[Thu May 18 19:23:36 2023]
+rule bowtie2:
+    input: results/01_trimmed/56_R1.tr.fastq.gz, results/01_trimmed/56_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib56_MappedOn_tair10.bam
+    log: logs/bowtie2/lib56_MappedOn_tair10.log
+    jobid: 152
+    reason: Input files updated by another job: results/01_trimmed/56_R1.tr.fastq.gz, results/01_trimmed/56_R2.tr.fastq.gz
+    wildcards: sample=56, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/56_R1.tr.fastq.gz -2 results/01_trimmed/56_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib56_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib56_MappedOn_tair10.log
+[Thu May 18 19:25:42 2023]
+Finished job 152.
+169 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:25:42 2023]
+rule bowtie2:
+    input: results/01_trimmed/26_R1.tr.fastq.gz, results/01_trimmed/26_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib26_MappedOn_tair10.bam
+    log: logs/bowtie2/lib26_MappedOn_tair10.log
+    jobid: 122
+    reason: Input files updated by another job: results/01_trimmed/26_R1.tr.fastq.gz, results/01_trimmed/26_R2.tr.fastq.gz
+    wildcards: sample=26, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/26_R1.tr.fastq.gz -2 results/01_trimmed/26_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib26_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib26_MappedOn_tair10.log
+[Thu May 18 19:28:01 2023]
+Finished job 122.
+170 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:28:01 2023]
+rule bowtie2:
+    input: results/01_trimmed/86_R1.tr.fastq.gz, results/01_trimmed/86_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib86_MappedOn_tair10.bam
+    log: logs/bowtie2/lib86_MappedOn_tair10.log
+    jobid: 182
+    reason: Input files updated by another job: results/01_trimmed/86_R1.tr.fastq.gz, results/01_trimmed/86_R2.tr.fastq.gz
+    wildcards: sample=86, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/86_R1.tr.fastq.gz -2 results/01_trimmed/86_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib86_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib86_MappedOn_tair10.log
+[Thu May 18 19:30:13 2023]
+Finished job 182.
+171 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:30:13 2023]
+rule bowtie2:
+    input: results/01_trimmed/41_R1.tr.fastq.gz, results/01_trimmed/41_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib41_MappedOn_tair10.bam
+    log: logs/bowtie2/lib41_MappedOn_tair10.log
+    jobid: 137
+    reason: Input files updated by another job: results/01_trimmed/41_R2.tr.fastq.gz, results/01_trimmed/41_R1.tr.fastq.gz
+    wildcards: sample=41, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/41_R1.tr.fastq.gz -2 results/01_trimmed/41_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib41_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib41_MappedOn_tair10.log
+[Thu May 18 19:33:32 2023]
+Finished job 137.
+172 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:33:32 2023]
+rule bowtie2:
+    input: results/01_trimmed/11_R1.tr.fastq.gz, results/01_trimmed/11_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib11_MappedOn_tair10.bam
+    log: logs/bowtie2/lib11_MappedOn_tair10.log
+    jobid: 107
+    reason: Input files updated by another job: results/01_trimmed/11_R1.tr.fastq.gz, results/01_trimmed/11_R2.tr.fastq.gz
+    wildcards: sample=11, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/11_R1.tr.fastq.gz -2 results/01_trimmed/11_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib11_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib11_MappedOn_tair10.log
+[Thu May 18 19:37:36 2023]
+Finished job 107.
+173 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:37:37 2023]
+rule bowtie2:
+    input: results/01_trimmed/71_R1.tr.fastq.gz, results/01_trimmed/71_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib71_MappedOn_tair10.bam
+    log: logs/bowtie2/lib71_MappedOn_tair10.log
+    jobid: 167
+    reason: Input files updated by another job: results/01_trimmed/71_R1.tr.fastq.gz, results/01_trimmed/71_R2.tr.fastq.gz
+    wildcards: sample=71, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/71_R1.tr.fastq.gz -2 results/01_trimmed/71_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib71_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib71_MappedOn_tair10.log
+[Thu May 18 19:40:12 2023]
+Finished job 167.
+174 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:40:12 2023]
+rule samtools:
+    input: results/02_bowtie2/lib6_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib6_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib6_MappedOn_tair10_sort.log
+    jobid: 198
+    reason: Missing output files: results/02_bowtie2/filtered/lib6_MappedOn_tair10_sort.bam; Input files updated by another job: results/02_bowtie2/lib6_MappedOn_tair10.bam
+    wildcards: sample=6, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib6_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib6_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib6_MappedOn_tair10_sort.log;
+[Thu May 18 19:40:22 2023]
+Finished job 198.
+175 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:40:22 2023]
+rule samtools:
+    input: results/02_bowtie2/lib50_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib50_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib50_MappedOn_tair10_sort.log
+    jobid: 242
+    reason: Input files updated by another job: results/02_bowtie2/lib50_MappedOn_tair10.bam
+    wildcards: sample=50, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib50_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib50_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib50_MappedOn_tair10_sort.log;
+[Thu May 18 19:40:42 2023]
+Finished job 242.
+176 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:40:42 2023]
+rule bowtie2:
+    input: results/01_trimmed/57_R1.tr.fastq.gz, results/01_trimmed/57_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib57_MappedOn_tair10.bam
+    log: logs/bowtie2/lib57_MappedOn_tair10.log
+    jobid: 153
+    reason: Input files updated by another job: results/01_trimmed/57_R2.tr.fastq.gz, results/01_trimmed/57_R1.tr.fastq.gz
+    wildcards: sample=57, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/57_R1.tr.fastq.gz -2 results/01_trimmed/57_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib57_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib57_MappedOn_tair10.log
+[Thu May 18 19:43:15 2023]
+Finished job 153.
+177 of 866 steps (20%) done
+Select jobs to execute...
+
+[Thu May 18 19:43:15 2023]
+rule samtools:
+    input: results/02_bowtie2/lib81_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib81_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib81_MappedOn_tair10_sort.log
+    jobid: 273
+    reason: Input files updated by another job: results/02_bowtie2/lib81_MappedOn_tair10.bam
+    wildcards: sample=81, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib81_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib81_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib81_MappedOn_tair10_sort.log;
+[Thu May 18 19:43:27 2023]
+Finished job 273.
+178 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:43:27 2023]
+rule samtools:
+    input: results/02_bowtie2/lib21_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib21_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib21_MappedOn_tair10_sort.log
+    jobid: 213
+    reason: Input files updated by another job: results/02_bowtie2/lib21_MappedOn_tair10.bam
+    wildcards: sample=21, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib21_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib21_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib21_MappedOn_tair10_sort.log;
+[Thu May 18 19:43:42 2023]
+Finished job 213.
+179 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:43:42 2023]
+rule bowtie2:
+    input: results/01_trimmed/27_R1.tr.fastq.gz, results/01_trimmed/27_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib27_MappedOn_tair10.bam
+    log: logs/bowtie2/lib27_MappedOn_tair10.log
+    jobid: 123
+    reason: Input files updated by another job: results/01_trimmed/27_R1.tr.fastq.gz, results/01_trimmed/27_R2.tr.fastq.gz
+    wildcards: sample=27, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/27_R1.tr.fastq.gz -2 results/01_trimmed/27_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib27_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib27_MappedOn_tair10.log
+[Thu May 18 19:46:58 2023]
+Finished job 123.
+180 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:46:58 2023]
+rule samtools:
+    input: results/02_bowtie2/lib51_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib51_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib51_MappedOn_tair10_sort.log
+    jobid: 243
+    reason: Input files updated by another job: results/02_bowtie2/lib51_MappedOn_tair10.bam
+    wildcards: sample=51, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib51_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib51_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib51_MappedOn_tair10_sort.log;
+[Thu May 18 19:47:18 2023]
+Finished job 243.
+181 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:47:18 2023]
+rule bowtie2:
+    input: results/01_trimmed/87_R1.tr.fastq.gz, results/01_trimmed/87_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib87_MappedOn_tair10.bam
+    log: logs/bowtie2/lib87_MappedOn_tair10.log
+    jobid: 183
+    reason: Input files updated by another job: results/01_trimmed/87_R2.tr.fastq.gz, results/01_trimmed/87_R1.tr.fastq.gz
+    wildcards: sample=87, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/87_R1.tr.fastq.gz -2 results/01_trimmed/87_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib87_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib87_MappedOn_tair10.log
+[Thu May 18 19:49:12 2023]
+Finished job 183.
+182 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:49:12 2023]
+rule samtools:
+    input: results/02_bowtie2/lib66_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib66_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib66_MappedOn_tair10_sort.log
+    jobid: 258
+    reason: Missing output files: results/02_bowtie2/filtered/lib66_MappedOn_tair10_sort.bam; Input files updated by another job: results/02_bowtie2/lib66_MappedOn_tair10.bam
+    wildcards: sample=66, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib66_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib66_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib66_MappedOn_tair10_sort.log;
+[Thu May 18 19:49:26 2023]
+Finished job 258.
+183 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:49:26 2023]
+rule samtools:
+    input: results/02_bowtie2/lib82_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib82_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib82_MappedOn_tair10_sort.log
+    jobid: 274
+    reason: Input files updated by another job: results/02_bowtie2/lib82_MappedOn_tair10.bam
+    wildcards: sample=82, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib82_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib82_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib82_MappedOn_tair10_sort.log;
+[Thu May 18 19:49:33 2023]
+Finished job 274.
+184 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:49:33 2023]
+rule bowtie2:
+    input: results/01_trimmed/58_R1.tr.fastq.gz, results/01_trimmed/58_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib58_MappedOn_tair10.bam
+    log: logs/bowtie2/lib58_MappedOn_tair10.log
+    jobid: 154
+    reason: Input files updated by another job: results/01_trimmed/58_R1.tr.fastq.gz, results/01_trimmed/58_R2.tr.fastq.gz
+    wildcards: sample=58, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/58_R1.tr.fastq.gz -2 results/01_trimmed/58_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib58_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib58_MappedOn_tair10.log
+[Thu May 18 19:55:06 2023]
+Finished job 154.
+185 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:55:06 2023]
+rule samtools:
+    input: results/02_bowtie2/lib22_MappedOn_tair10.bam
+    output: results/02_bowtie2/filtered/lib22_MappedOn_tair10_sort.bam
+    log: logs/samtools/lib22_MappedOn_tair10_sort.log
+    jobid: 214
+    reason: Input files updated by another job: results/02_bowtie2/lib22_MappedOn_tair10.bam
+    wildcards: sample=22, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(samtools view -h results/02_bowtie2/lib22_MappedOn_tair10.bam -q 2 -u | samtools sort -@ 30 -m 5G -o results/02_bowtie2/filtered/lib22_MappedOn_tair10_sort.bam -) 2> logs/samtools/lib22_MappedOn_tair10_sort.log;
+[Thu May 18 19:55:15 2023]
+Finished job 214.
+186 of 866 steps (21%) done
+Select jobs to execute...
+
+[Thu May 18 19:55:15 2023]
+rule bowtie2:
+    input: results/01_trimmed/28_R1.tr.fastq.gz, results/01_trimmed/28_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib28_MappedOn_tair10.bam
+    log: logs/bowtie2/lib28_MappedOn_tair10.log
+    jobid: 124
+    reason: Input files updated by another job: results/01_trimmed/28_R1.tr.fastq.gz, results/01_trimmed/28_R2.tr.fastq.gz
+    wildcards: sample=28, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/28_R1.tr.fastq.gz -2 results/01_trimmed/28_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib28_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib28_MappedOn_tair10.log
+[Thu May 18 19:57:10 2023]
+Finished job 124.
+187 of 866 steps (22%) done
+Select jobs to execute...
+
+[Thu May 18 19:57:10 2023]
+rule bowtie2:
+    input: results/01_trimmed/88_R1.tr.fastq.gz, results/01_trimmed/88_R2.tr.fastq.gz
+    output: results/02_bowtie2/lib88_MappedOn_tair10.bam
+    log: logs/bowtie2/lib88_MappedOn_tair10.log
+    jobid: 184
+    reason: Input files updated by another job: results/01_trimmed/88_R2.tr.fastq.gz, results/01_trimmed/88_R1.tr.fastq.gz
+    wildcards: sample=88, refbase=tair10
+    threads: 30
+    resources: tmpdir=/tmp
+
+(bowtie2 --very-sensitive --threads 30 -x data/bowtie2_index/tair10 -1 results/01_trimmed/88_R1.tr.fastq.gz -2 results/01_trimmed/88_R2.tr.fastq.gz | samtools view -bh -@ 30 -F 2308 -o results/02_bowtie2/lib88_MappedOn_tair10.bam - ) 2> logs/bowtie2/lib88_MappedOn_tair10.log

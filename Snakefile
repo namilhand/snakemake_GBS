@@ -9,7 +9,7 @@
 import pandas as pd
 import os
 
-# To make the per_base_coverage rule work with a shell script invoked using the "shell" directive,
+# To make a shell script invoked using the "shell" directive,
 # we need to determine the base path of Snakefile since we Expect the scripts directory to be there as well
 SRCDIR = srcdir("")
 
@@ -106,7 +106,7 @@ rule cutadapt:
         " -A {params.trim_R2_3prime}"
         " -O {params.minimum_overlap}"
         " -q {params.quality_filter}"
-        " --cores=0"
+        # " --cores=0"
         " raw/{wildcards.sample}_*_1.fastq.gz raw/{wildcards.sample}_*_2.fastq.gz"
         " -o {output.tr_read1}"
         " -p {output.tr_read2}"
@@ -154,7 +154,7 @@ rule markdup:
         metric="logs/markdup/lib{sample}_MappedOn_{refbase}_sort.md.txt",
         index = "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam.bai"
     input: "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam"
-    threads: config["THREADS"]
+    # threads: config["THREADS"]
     shell:
         "picard MarkDuplicates -I {input}"
         " -O {output.bam}"
