@@ -2,3 +2,4 @@ raw
 results
 logs
 qc
+.snakemake
