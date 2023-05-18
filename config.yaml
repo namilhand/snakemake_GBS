@@ -1,33 +1,33 @@
 THREADS: 30
 MEMORY: "300g"
+LIBRARY_INFO:
+  sample_size: 96
+  # date: (if possible) annotate library name with the date when macrogen finished sequencing
+  lib_name: "20230512_MIGS-H2AW-SUVH"
 FILTER:
-  fastqc:
-      adapters: "/datasets/data_4/nison/GBS/for_snakemake/data/fastqc_adapters.txt"
   cutadapt:
       cut_R1_5prime: 9 # -u (Cut 8bp index + T-OH from 5'end of Read1)
-      adapter_R1_3prime: "AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA" # -a
-      adapter_R2_3prime_file: "/datasets/data_4/nison/GBS/for_snakemake/data/GBS_adapter_P1_R.txt" # -A
+      trim_R1_3prime: "AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA" # -a
+      trim_R2_3prime_file: "data/GBS_adapter_P1_R.txt" # -A
       quality-filter: 19 # -q
       minimum-overlap: 3 # -O (default: 3)
 # NOTE: reference genome-specific mapping parameters
 MAPPING:
-      # alignments: 10 # "In -k <N> mode, Bowtie 2 searches for up to N distinct, valid alignments for each read"
-      reference: "/datasets/data_4/nison/GBS/for_snakemake/data/bowtie2_index/tair10"
-      MAPQmaxi: 10 # -q
+      # alignments: 10 # "In -k <N> mode, Bowtie 2 searches for up to N distinct, valid alignments for each read" However, the MAPQ becomes meaningless in -k mode. Thus I disable this option in bowtie2 rule.
+      reference: "data/bowtie2_index/tair10"
+      # True multiread can get MAPQ 0 or 1. In the GBS analysis I only take primary reads but the primary reads of the true multiread is random: So I filter out the alignments with MAPQ below 2.
+      MAPQmaxi: 2 # -q
       sortMemory: "5G"
 MARKER:
-  complete_gz: "/datasets/data_4/nison/GBS/for_snakemake/data/ColLer_markers/BC.complete.tsv.gz"
-  complete: "/datasets/data_4/nison/GBS/for_snakemake/data/ColLer_markers/filter_arp6-deletion/BC.complete.arp6_filter.tsv"
-  mask: "/datasets/data_4/nison/GBS/for_snakemake/data/ColLer_markers/filter_arp6-deletion/BC.mask.arp6_filter.tsv"
+  complete_gz: "data/ColLer_markers/BC.complete.tsv.gz"
+  complete: "data/ColLer_markers/BC.complete.tsv"
+  mask: "data/ColLer_markers/BC.mask.tsv"
 REFGENOME: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta"
 SCRIPTS:
-  tigercall2tigerin: "/datasets/data_4/nison/GBS/for_snakemake/src/tigercalls2tiger.R"
-  tiger: "/datasets/data_4/nison/GBS/for_snakemake/src/runTiger.sh"
-  cotable: "/datasets/data_4/nison/GBS/for_snakemake/src/GBS_cotable.R"
-COTABLE:
-  # number of library to summarize
-  num_lib: 96
-  lib_name: "arp6-2023"
+  tigercall2tigerin: "src/tigercalls2tiger.R"
+  tiger: "/usr/local/src/GBS_suite/TIGER_Scripts-for-distribution"
+  runtiger: "src/runTiger.sh"
+  cotable: "src/GBS_cotable.R"
 
 # NEBNext adapter and universal primer for Illumina:
 # https://international.neb.com/-/media/catalog/datacards-or-manuals/manuale7335.pdf

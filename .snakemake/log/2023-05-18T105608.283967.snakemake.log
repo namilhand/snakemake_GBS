@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in rule cotable in file /datasets/data_4/nison/GBS/20230512_GBS_MIGS-H2AW-SUVH/Snakefile, line 237:
+Missing input files for rule cotable:
+    output: results/arp6-2023_mapq5_cotable.txt
+    wildcards: lib_name=arp6-2023, mapq=5
+    affected files:
+        results/06_tiger/mapq5

@@ -1,0 +1,2 @@
+in data/ directory
+- GBS_adapter_P1_R.txt: Reverse complemented 96 P1 adapter sequence. Cutadapt refer to this file for trimming 3' end of read2

@@ -15,81 +15,73 @@ SRCDIR = srcdir("")
 
 # Specify config file parameters
 configfile: "config.yaml"
-SAMPLE = list(range(1, 97))
+## library info
+SAMPLE_SIZE = config["LIBRARY_INFO"]["sample_size"]
+SAMPLE = list(range(1, SAMPLE_SIZE + 1))
+LIB_NAME = config["LIBRARY_INFO"]["lib_name"]
+## reference genome fasta
+REFGENOME = config["REFGENOME"]
+## cutadapt
+TRIM_R1_3P = config["FILTER"]["cutadapt"]["trim_R1_3prime"]
+TRIM_R2_3P_FILE = config["FILTER"]["cutadapt"]["trim_R2_3prime_file"]
+TRIM_R2_3P_DF = pd.read_csv(TRIM_R2_3P_FILE, header = None, sep = " ") # read the reverse complemented 96 adapter1 sequences
+## bowtie2
 REFERENCE = config["MAPPING"]["reference"]
 REFBASE = os.path.basename(REFERENCE)
-BARCODE = glob_wildcards("raw/{libnum}_{barcode}_{read_num}.fastq.gz").barcode
-ADAPTER_R2_3P = config["FILTER"]["cutadapt"]["adapter_R2_3prime_file"]
+## markers to use
 MARKCOMP_GZ = config["MARKER"]["complete_gz"]
 MARKCOMP = config["MARKER"]["complete"]
 MARKMASK = config["MARKER"]["mask"]
-REFGENOME = config["REFGENOME"]
+## sources
 TIGERIN_src = config["SCRIPTS"]["tigercall2tigerin"]
 TIGER_src = config["SCRIPTS"]["tiger"]
+RUNTIGER_src = config["SCRIPTS"]["runtiger"]
 COTABLE_src = config["SCRIPTS"]["cotable"]
-N_LIB = config["COTABLE"]["num_lib"]
-LIB_NAME = config["COTABLE"]["lib_name"]
 
-adapter_R2_3prime_df = pd.read_csv(ADAPTER_R2_3P, header = None, sep = " ")
+
+# to be deleted
+# BARCODE = glob_wildcards("raw/{libnum}_{barcode}_{read_num}.fastq.gz").barcode
+# =======
+
 
 # Specify the desired end target file(s)
 rule all:
     input:
-        # expand("qc/fastqc/{sample}_{barcode}_{read_num}_fastqc.html", sample = [10,11,12], barcode = BARCODE[0:2], read_num = [1, 2]),
         expand("results/01_trimmed/{sample}_R{read_num}.tr.fastq.gz", sample = SAMPLE, read_num = [1, 2]),
         expand("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam",
-                 sample = SAMPLE,
-                 refbase = REFBASE),
-        expand("results/02_bowtie2/filtered/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.bam",
+                sample = SAMPLE,
+                refbase = REFBASE),
+        expand("results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam",
                sample = SAMPLE,
-               refbase = REFBASE,
-               mapq = [5]),
-        expand("results/02_bowtie2/filtered/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.md.bam",
+               refbase = REFBASE),
+        expand("results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam",
             sample = SAMPLE,
-            refbase = REFBASE,
-            mapq = [5]),
-        expand("results/03_vcf/lib{sample}_MappedOn_{refbase}_mapq{mapq}.vcf.gz",
+            refbase = REFBASE),
+        expand("results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz",
             sample = SAMPLE,
-            refbase = REFBASE,
-            mapq = [5]),
-        expand("results/04_tigercall/lib{sample}_MappedOn_{refbase}_mapq{mapq}.tigercalls.txt",
+            refbase = REFBASE),
+        expand("results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz.csi",
             sample = SAMPLE,
-            refbase = REFBASE,
-            mapq = [5]),
-        expand("results/05_tigerin/lib{sample}_MappedOn_{refbase}_mapq{mapq}.mask.txt",
+            refbase = REFBASE),
+        expand("results/04_tigercall/lib{sample}_MappedOn_{refbase}.tigercalls.txt",
             sample = SAMPLE,
-            refbase = REFBASE,
-            mapq = [5]),
-        expand("results/06_tiger/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}.smooth.co.txt",
+            refbase = REFBASE),
+        expand("results/05_tigerin/lib{sample}_MappedOn_{refbase}.mask.txt",
             sample = SAMPLE,
-            refbase = REFBASE,
-            mapq = [5])
-        # expand("results/{lib_name}_mapq{mapq}_cotable.txt",
-        #     lib_name = LIB_NAME,
-        #     mapq = [5])
+            refbase = REFBASE),
+        expand("results/06_tiger/lib{sample}_MappedOn_{refbase}.smooth.co.txt",
+            sample = SAMPLE,
+            refbase = REFBASE),
+        expand("results/{lib_name}_cotable.txt",
+            lib_name = LIB_NAME)
 
 # Run fastqc on single-end raw data
-# rule fastqc_raw:
-#     """Create fastqc report"""
-#     output:
-#         html = "qc/fastqc/{sample}_{barcode}_{read_num}_fastqc.html",
-#         zip  = "qc/fastqc/{sample}_{barcode}_{read_num}_fastqc.zip"
-#     input:
-#         "raw/{sample}_{barcode}_{read_num}.fastq.gz"
-#     params:
-#         " --extract" +
-#         " --adapters " + str(config["FILTER"]["fastqc"]["adapters"])
-#     log:
-#         "logs/fastqc/{sample}_{barcode}_{read_num}.log"
-#     wrapper:
-#         "v1.28.0/bio/fastqc"
-
 # Trim off adapters
 
-## Get Read2 3'end adapter sequence
+## Get reverse complemented adapter sequence for trimming 3' end of Read 2
 ## https://snakemake.readthedocs.io/en/stable/tutorial/advanced.html#step-3-input-functions
 def getadapt(wildcards):
-    return(adapter_R2_3prime_df.iloc[int(wildcards.sample)-1][1])
+    return(TRIM_R2_3P_DF.iloc[int(wildcards.sample)-1][1])
 
 rule cutadapt:
     """Remove adapters"""
@@ -101,8 +93,8 @@ rule cutadapt:
     #     read1 = "data/fastq/{sample}_{barcode}_1.fastq.gz",
     #     read2 = "data/fastq/{sample}_{barcode}_2.fastq.gz"
     params:
-        adapter_R1_3prime = config["FILTER"]["cutadapt"]["adapter_R1_3prime"],
-        adapter_R2_3prime = getadapt,
+        trim_R1_3prime = TRIM_R1_3P,
+        trim_R2_3prime = getadapt,
         cut_R1_5prime = config["FILTER"]["cutadapt"]["cut_R1_5prime"],
         quality_filter = config["FILTER"]["cutadapt"]["quality-filter"],
         minimum_overlap = config["FILTER"]["cutadapt"]["minimum-overlap"]
@@ -110,8 +102,8 @@ rule cutadapt:
         "logs/cutadapt/{sample}_trimmed.log"
     shell:
         "cutadapt -u {params.cut_R1_5prime}"
-        " -a {params.adapter_R1_3prime}"
-        " -A {params.adapter_R2_3prime}"
+        " -a {params.trim_R1_3prime}"
+        " -A {params.trim_R2_3prime}"
         " -O {params.minimum_overlap}"
         " -q {params.quality_filter}"
         " --cores=0"
@@ -123,13 +115,12 @@ rule cutadapt:
 # Align to reference genome
 rule bowtie2:
     """Map reads using bowtie2 and filter alignments using samtools"""
-    output: temp("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam")
+    # output: temp("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam")
+    output: "results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam"
     input:
-        # fastq = "data/dedup/trimmed/{sample}_dedup_trimmed.fastq.gz",
         tr_1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz",
         tr_2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz"
     params:
-        # alignments = config["MAPPING"]["alignments"],
         MAPQmaxi = config["MAPPING"]["MAPQmaxi"]
     threads: config["THREADS"]
     log:
@@ -142,42 +133,27 @@ rule bowtie2:
         " -x {REFERENCE} -1 {input.tr_1} -2 {input.tr_2}"
         " | samtools view -bh -@ {threads} -F 2308 -o {output} - ) 2> {log}"
 
-# Filter alignments for mismatches and extract unique alignments
+# Filter out multireads by using MAPQscore
 rule samtools:
-    output: "results/02_bowtie2/filtered/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.bam"
-        # mapq10   = "results/bowtie2/filtered/{sample}_{barcode}_MappedOn_{refbase}_mapq10_sort.bam",
-        # mapq5   = "results/bowtie2/filtered/{sample}_{barcode}_MappedOn_{refbase}_mapq5_sort.bam",
-        # mapq0   = "results/bowtie2/filtered/{sample}_{barcode}_MappedOn_{refbase}_mapq0_sort.bam"
+    output: "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam"
     input: "results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam"
     params:
-        sortMemory = config["MAPPING"]["sortMemory"]
+        sortMemory = config["MAPPING"]["sortMemory"],
+        MAPQmaxi = config["MAPPING"]["MAPQmaxi"]
     threads: config["THREADS"]
-    log: "logs/samtools/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.log"
-        # mapq10   = "logs/samtools/{sample}_{barcode}_MappedOn_{refbase}_mapq10_sort.log",
-        # mapq5 = "logs/samtools/{sample}_{barcode}_MappedOn_{refbase}_mapq5_sort.log",
-        # mapq0 = "logs/samtools/{sample}_{barcode}_MappedOn_{refbase}_mapq0_sort.log"
+    log: "logs/samtools/lib{sample}_MappedOn_{refbase}_sort.log"
     shell:
-        "(samtools view -h {input} -q {wildcards.mapq} -u "
+        "(samtools view -h {input} -q {params.MAPQmaxi} -u "
         "| samtools sort -@ {threads} -m {params.sortMemory} -o {output} -) 2> {log};"
-        # "(samtools view -h {input} -q 5 -u "
-        # "| samtools sort -@ {threads} -m {params.sortMemory} -o {output.mapq5} -) 2> {log.mapq5};"
-        # "(samtools view -h {input} -q 0 -u "
-        # "| samtools sort -@ {threads} -m {params.sortMemory} -o {output.mapq0} -) 2> {log.mapq0}"
-        # Extract unique alignments, excluding alignments with MAPQ scores < config["MAPPING"]["MAPQunique"]
         # http://biofinysics.blogspot.com/2014/05/how-does-bowtie2-assign-mapq-scores.html
         # https://sequencing.qcfail.com/articles/mapq-values-are-really-useful-but-their-implementation-is-a-mess/
-        # "(samtools view -h -q {params.MAPQunique} {input} "
-        # "| grep -e '^@' -e 'XM:i:[012][^0-9]' "
-        # "| samtools view -u - "
-        # "| samtools sort -@ {threads} -m {params.sortMemory} - "
-        # "| samtools rmdup -s - {output.unique}) 2> {log.unique}"
 
 rule markdup:
     output: 
-        bam="results/02_bowtie2/filtered/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.md.bam",
-        metric="logs/markdup/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.md.txt",
-        index = "results/02_bowtie2/filtered/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.md.bam.bai"
-    input: "results/02_bowtie2/filtered/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.bam"
+        bam="results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam",
+        metric="logs/markdup/lib{sample}_MappedOn_{refbase}_sort.md.txt",
+        index = "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam.bai"
+    input: "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam"
     threads: config["THREADS"]
     shell:
         "picard MarkDuplicates -I {input}"
@@ -186,22 +162,27 @@ rule markdup:
         " --REMOVE_DUPLICATES true;"
         "samtools index {output.bam} -o {output.index}"
 
+
 # variant calling (VCF)
 rule varcall:
     output: 
-        vcf = "results/03_vcf/lib{sample}_MappedOn_{refbase}_mapq{mapq}.vcf.gz",
-        index = "results/03_vcf/lib{sample}_MappedOn_{refbase}_mapq{mapq}.vcf.gz.csi"
-    input: "results/02_bowtie2/filtered/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}_sort.md.bam"
+        vcf = "results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz",
+    input: "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam"
     shell:
         r"""
         bcftools mpileup -f {REFGENOME} {input} -Ou |
         bcftools call -m -T {MARKCOMP_GZ} -Oz -o {output.vcf} -
-
-        bcftools index {output.vcf} -o {output.index}
         """
+rule index_vcf:
+    output:
+        index = "results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz.csi"
+    input: "results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz"
+    shell:
+        "bcftools index {input} -o {output.index}"
+
 rule vcf2tigercall:
-    output: "results/04_tigercall/lib{sample}_MappedOn_{refbase}_mapq{mapq}.tigercalls.txt"
-    input: "results/03_vcf/lib{sample}_MappedOn_{refbase}_mapq{mapq}.vcf.gz"
+    output: "results/04_tigercall/lib{sample}_MappedOn_{refbase}.tigercalls.txt"
+    input: "results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz"
     shell:
         r"""
         bcftools query -f '%CHROM %POS %REF %ALT %QUAL [ %INDEL %DP %DP4]\n' {input} |
@@ -212,31 +193,33 @@ rule vcf2tigercall:
         """
 rule tigercall2tigerin:
     output: 
-        complete="results/05_tigerin/lib{sample}_MappedOn_{refbase}_mapq{mapq}.complete.txt",
-        mask="results/05_tigerin/lib{sample}_MappedOn_{refbase}_mapq{mapq}.mask.txt"
+        complete="results/05_tigerin/lib{sample}_MappedOn_{refbase}.complete.txt",
+        mask="results/05_tigerin/lib{sample}_MappedOn_{refbase}.mask.txt"
     input:
-        "results/04_tigercall/lib{sample}_MappedOn_{refbase}_mapq{mapq}.tigercalls.txt"
+        "results/04_tigercall/lib{sample}_MappedOn_{refbase}.tigercalls.txt"
     shell:
         r"""
         mkdir -p tmp/tigerin_temp;
-        Rscript {TIGERIN_src} {input} tmp/tigerin_temp lib{wildcards.sample}_mapq{wildcards.mapq}
-        mv tmp/tigerin_temp/lib{wildcards.sample}_mapq{wildcards.mapq}.mask.txt {output.mask}
-        mv tmp/tigerin_temp/lib{wildcards.sample}_mapq{wildcards.mapq}.complete.txt {output.complete}
+        Rscript {TIGERIN_src} {input} tmp/tigerin_temp lib{wildcards.sample}
+        mv tmp/tigerin_temp/lib{wildcards.sample}.mask.txt {output.mask}
+        mv tmp/tigerin_temp/lib{wildcards.sample}.complete.txt {output.complete}
         """
 
 rule tiger:
-    output: "results/06_tiger/mapq_{mapq}/lib{sample}_MappedOn_{refbase}_mapq{mapq}.smooth.co.txt"
+    output: "results/06_tiger/lib{sample}_MappedOn_{refbase}.smooth.co.txt"
     input:
-        complete = "results/05_tigerin/lib{sample}_MappedOn_{refbase}_mapq{mapq}.complete.txt",
-        mask= "results/05_tigerin/lib{sample}_MappedOn_{refbase}_mapq{mapq}.mask.txt"
+        complete = "results/05_tigerin/lib{sample}_MappedOn_{refbase}.complete.txt",
+        mask= "results/05_tigerin/lib{sample}_MappedOn_{refbase}.mask.txt"
     shell:
         r"""
-        bash {TIGER_src} {input.complete} {input.mask} results/06_tiger/mapq_{wildcards.mapq}
+        bash {RUNTIGER_src} {TIGER_src} {input.complete} {input.mask} results/06_tiger
         """
-        # mkdir -p results/05_tiger
-# rule cotable:
-#     output: "results/{lib_name}_mapq{mapq}_cotable.txt"
-#     shell:
-#         r"""
-#         Rscript {COTABLE_src} results/06_tiger/mapq_{wildcards.mapq} {output} {N_LIB}
-#         """
+        # mkdir -p results/06_tiger
+rule cotable:
+    output: "results/{lib_name}_cotable.txt"
+    input:
+        input_files = expand("results/06_tiger/lib{sample}_MappedOn_{refbase}.smooth.co.txt", sample=SAMPLE, refbase=REFBASE)
+    shell:
+        r"""
+        Rscript {COTABLE_src} results/06_tiger {output} {SAMPLE_SIZE}
+        """
