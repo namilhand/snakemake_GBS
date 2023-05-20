@@ -3,3 +3,4 @@ results
 logs
 qc
 .snakemake
+data/bowtie2_index
