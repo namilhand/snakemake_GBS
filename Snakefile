@@ -86,8 +86,8 @@ def getadapt(wildcards):
 rule cutadapt:
     """Remove adapters"""
     output:
-        temp(tr_read1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz"),
-        temp(tr_read2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz"),
+        tr_read1 = temp("results/01_trimmed/{sample}_R1.tr.fastq.gz"),
+        tr_read2 = temp("results/01_trimmed/{sample}_R2.tr.fastq.gz"),
         qc    = "qc/cutadapt/{sample}_cutadapt.qc.txt"
     # input:
     #     read1 = "data/fastq/{sample}_{barcode}_1.fastq.gz",
@@ -116,10 +116,10 @@ rule cutadapt:
 rule bowtie2:
     """Map reads using bowtie2 and filter alignments using samtools"""
     # output: temp("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam")
-    output: "results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam"
+    output: temp("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam")
     input:
-        temp(tr_1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz"),
-        temp(tr_2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz")
+        tr_1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz",
+        tr_2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz"
     params:
         MAPQmaxi = config["MAPPING"]["MAPQmaxi"]
     threads: config["THREADS"]
@@ -135,7 +135,7 @@ rule bowtie2:
 
 # Filter out multireads by using MAPQscore
 rule samtools:
-    output: "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam"
+    output: temp("results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam")
     input: "results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam"
     params:
         sortMemory = config["MAPPING"]["sortMemory"],
