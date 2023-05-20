@@ -86,8 +86,8 @@ def getadapt(wildcards):
 rule cutadapt:
     """Remove adapters"""
     output:
-        tr_read1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz",
-        tr_read2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz",
+        temp(tr_read1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz"),
+        temp(tr_read2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz"),
         qc    = "qc/cutadapt/{sample}_cutadapt.qc.txt"
     # input:
     #     read1 = "data/fastq/{sample}_{barcode}_1.fastq.gz",
@@ -118,8 +118,8 @@ rule bowtie2:
     # output: temp("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam")
     output: "results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam"
     input:
-        tr_1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz",
-        tr_2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz"
+        temp(tr_1 = "results/01_trimmed/{sample}_R1.tr.fastq.gz"),
+        temp(tr_2 = "results/01_trimmed/{sample}_R2.tr.fastq.gz")
     params:
         MAPQmaxi = config["MAPPING"]["MAPQmaxi"]
     threads: config["THREADS"]
