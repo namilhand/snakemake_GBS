@@ -20,7 +20,7 @@ FILTER:
 # NOTE: reference genome-specific mapping parameters
 MAPPING:
       # alignments: 10 # "In -k <N> mode, Bowtie 2 searches for up to N distinct, valid alignments for each read" However, the MAPQ becomes meaningless in -k mode. Thus I disable this option in bowtie2 rule.
-      reference: "/home/nison/work/refgenome/TAIR10/bowtie2_index"
+      reference: "/home/nison/work/refgenome/TAIR10/bowtie2_index/tair10"
       # True multiread can get MAPQ 0 or 1. In the GBS analysis I only take primary reads but the primary reads of the true multiread is random: So I filter out the alignments with MAPQ below 2.
       MAPQmaxi: 2 # -q
       sortMemory: "5G"
