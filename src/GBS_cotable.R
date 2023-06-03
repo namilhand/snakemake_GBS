@@ -25,7 +25,6 @@ cotable <- function(lib.nums, dirin){
 		files.smooth=files[grep("smooth", files)]
         for(k in 1:lib.nums){
                 smooth=paste0(dirin, "/", files.smooth[k])
-                print(smooth)
                 dat <- read.table(file=smooth, header=F)
                 all <- NULL
                 for(i in 1:5){

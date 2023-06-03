@@ -20,7 +20,8 @@ SAMPLE_SIZE = config["LIBRARY_INFO"]["sample_size"]
 SAMPLE = list(range(1, SAMPLE_SIZE + 1))
 LIB_NAME = config["LIBRARY_INFO"]["lib_name"]
 ## reference genome fasta
-REFGENOME = config["REFGENOME"]
+REFGENOME = config["REFGENOME"]["fasta"]
+REF_FAI = config["REFGENOME"]["fai"]
 ## cutadapt
 TRIM_R1_3P = config["FILTER"]["cutadapt"]["trim_R1_3prime"]
 TRIM_R2_3P_FILE = config["FILTER"]["cutadapt"]["trim_R2_3prime_file"]
@@ -32,11 +33,15 @@ REFBASE = os.path.basename(REFERENCE)
 MARKCOMP_GZ = config["MARKER"]["complete_gz"]
 MARKCOMP = config["MARKER"]["complete"]
 MARKMASK = config["MARKER"]["mask"]
+## TSV
+binSize = config["TSV"]["binSize"]
+binName = config["TSV"]["binName"]
 ## sources
 TIGERIN_src = config["SCRIPTS"]["tigercall2tigerin"]
 TIGER_src = config["SCRIPTS"]["tiger"]
 RUNTIGER_src = config["SCRIPTS"]["runtiger"]
 COTABLE_src = config["SCRIPTS"]["cotable"]
+TSV_src = config["SCRIPTS"]["toTSV"]
 
 
 # to be deleted
@@ -47,33 +52,34 @@ COTABLE_src = config["SCRIPTS"]["cotable"]
 # Specify the desired end target file(s)
 rule all:
     input:
-        expand("results/01_trimmed/{sample}_R{read_num}.tr.fastq.gz", sample = SAMPLE, read_num = [1, 2]),
-        expand("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam",
-                sample = SAMPLE,
-                refbase = REFBASE),
-        expand("results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam",
-               sample = SAMPLE,
-               refbase = REFBASE),
-        expand("results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam",
-            sample = SAMPLE,
-            refbase = REFBASE),
-        expand("results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz",
-            sample = SAMPLE,
-            refbase = REFBASE),
-        expand("results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz.csi",
-            sample = SAMPLE,
-            refbase = REFBASE),
-        expand("results/04_tigercall/lib{sample}_MappedOn_{refbase}.tigercalls.txt",
-            sample = SAMPLE,
-            refbase = REFBASE),
-        expand("results/05_tigerin/lib{sample}_MappedOn_{refbase}.mask.txt",
-            sample = SAMPLE,
-            refbase = REFBASE),
-        expand("results/06_tiger/lib{sample}_MappedOn_{refbase}.smooth.co.txt",
-            sample = SAMPLE,
-            refbase = REFBASE),
-        expand("results/{lib_name}_cotable.txt",
-            lib_name = LIB_NAME)
+    #    expand("results/01_trimmed/{sample}_R{read_num}.tr.fastq.gz", sample = SAMPLE, read_num = [1, 2]),
+    #    expand("results/02_bowtie2/lib{sample}_MappedOn_{refbase}.bam",
+    #            sample = SAMPLE,
+    #            refbase = REFBASE),
+    #    expand("results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam",
+    #           sample = SAMPLE,
+    #           refbase = REFBASE),
+    #    expand("results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam",
+    #        sample = SAMPLE,
+    #        refbase = REFBASE),
+    #    expand("results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz",
+    #        sample = SAMPLE,
+    #        refbase = REFBASE),
+    #    expand("results/03_vcf/lib{sample}_MappedOn_{refbase}.vcf.gz.csi",
+    #        sample = SAMPLE,
+    #        refbase = REFBASE),
+    #    expand("results/04_tigercall/lib{sample}_MappedOn_{refbase}.tigercalls.txt",
+    #        sample = SAMPLE,
+    #        refbase = REFBASE),
+    #    expand("results/05_tigerin/lib{sample}_MappedOn_{refbase}.mask.txt",
+    #        sample = SAMPLE,
+    #        refbase = REFBASE),
+    #    expand("results/06_tiger/lib{sample}_MappedOn_{refbase}.smooth.co.txt",
+    #        sample = SAMPLE,
+    #        refbase = REFBASE),
+    #    expand("results/{lib_name}_cotable.txt",
+    #        lib_name = LIB_NAME),
+        expand("results/{lib_name}_genomeBin{binName}.tsv", lib_name = LIB_NAME, binName = binName)
 
 # Run fastqc on single-end raw data
 # Trim off adapters
@@ -222,4 +228,11 @@ rule cotable:
     shell:
         r"""
         Rscript {COTABLE_src} results/06_tiger {output} {SAMPLE_SIZE}
+        """
+rule toGenomeBin:
+    output: "results/{lib_name}_genomeBin{binName}.tsv"
+    input: "results/{lib_name}_cotable.txt"
+    shell:
+        r"""
+        Rscript {TSV_src} {input} {binSize} {REF_FAI} {output}
         """

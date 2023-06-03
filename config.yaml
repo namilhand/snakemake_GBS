@@ -28,12 +28,18 @@ MARKER:
   complete_gz: "data/ColLer_markers/BC.complete.tsv.gz"
   complete: "data/ColLer_markers/BC.complete.tsv"
   mask: "data/ColLer_markers/BC.mask.tsv"
-REFGENOME: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta"
+REFGENOME: 
+  fasta: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta"
+  fai: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta.fai"
+TSV:
+  binSize: 10000
+  binName: "10kb"
 SCRIPTS:
   tigercall2tigerin: "src/tigercalls2tiger.R"
   tiger: "/usr/local/src/GBS_suite/TIGER_Scripts-for-distribution"
   runtiger: "src/runTiger.sh"
   cotable: "src/GBS_cotable.R"
+  toTSV: "src/cotableToGenomeBinTSV.R"
 
 # NEBNext adapter and universal primer for Illumina:
 # https://international.neb.com/-/media/catalog/datacards-or-manuals/manuale7335.pdf
