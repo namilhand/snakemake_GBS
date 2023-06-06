@@ -12,3 +12,4 @@ dependencies:
   - picard=3.0.0
   - samtools=1.17
   - conda-forge::ncurses=6.3
+  - snakemake-wrapper-utils=0.5.3
