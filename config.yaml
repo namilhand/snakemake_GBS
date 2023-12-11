@@ -9,7 +9,7 @@ MEMORY: "300g"
 LIBRARY_INFO:
   sample_size: 96
   # datein lib_name: (if possible) annotate library name with the date when macrogen finished sequencing
-  lib_name: "20230512_MIGS-H2AW-SUVH"
+  lib_name: "20231122_hta7-set1"
 FILTER:
   cutadapt:
       cut_R1_5prime: 9 # -u (Cut 8bp index + T-OH from 5'end of Read1)
@@ -32,14 +32,17 @@ REFGENOME:
   fasta: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta"
   fai: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta.fai"
 TSV:
-  binSize: 10000
-  binName: "10kb"
+  binSize: 100000
+  binName: "100kb"
 SCRIPTS:
   tigercall2tigerin: "src/tigercalls2tiger.R"
   tiger: "/usr/local/src/GBS_suite/TIGER_Scripts-for-distribution"
   runtiger: "src/runTiger.sh"
   cotable: "src/GBS_cotable.R"
   toTSV: "src/cotableToGenomeBinTSV.R"
+  plot: "src/CO_landscape.R"
+PLOT:
+  ma_width: 7
 
 # NEBNext adapter and universal primer for Illumina:
 # https://international.neb.com/-/media/catalog/datacards-or-manuals/manuale7335.pdf

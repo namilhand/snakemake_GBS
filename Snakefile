@@ -42,6 +42,7 @@ TIGER_src = config["SCRIPTS"]["tiger"]
 RUNTIGER_src = config["SCRIPTS"]["runtiger"]
 COTABLE_src = config["SCRIPTS"]["cotable"]
 TSV_src = config["SCRIPTS"]["toTSV"]
+PLOT_src = config["SCRIPTS"]["plot"]
 
 
 # to be deleted
@@ -79,7 +80,10 @@ rule all:
            refbase = REFBASE),
        expand("results/{lib_name}_cotable.txt",
            lib_name = LIB_NAME),
-        expand("results/{lib_name}_genomeBin{binName}.tsv", lib_name = LIB_NAME, binName = binName)
+        expand("results/{lib_name}_genomeBin{binName}.tsv", lib_name = LIB_NAME, binName = binName),
+        expand("results/07_default_analysis/{lib_name}_co_landscape_ma-co_{ma_width}.pdf",
+                lib_name = LIB_NAME,
+                ma_width = config["PLOT"]["ma_width"])
 
 # Run fastqc on single-end raw data
 # Trim off adapters
@@ -236,3 +240,14 @@ rule toGenomeBin:
         r"""
         Rscript {TSV_src} {input} {binSize} {REF_FAI} {output}
         """
+rule plotting:
+    output: "results/07_default_analysis/{lib_name}_co_landscape_ma-co_{ma_width}.pdf"
+    input:
+        input_file = expand("results/{lib_name}_genomeBin{binName}.tsv", lib_name=LIB_NAME, binName=binName)
+    params:
+        libname=LIB_NAME
+    shell:
+        r"""
+        Rscript {PLOT_src} {input} {params.libname}
+        """
+
