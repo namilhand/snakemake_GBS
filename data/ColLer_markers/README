@@ -1,5 +1,19 @@
 # Descriptions on ColLer marker files
 
+#=======================
+# GBS marker v2
+#=======================
+
+# complete markers: 606240 markers
+coller_complete_v2_for_bcftools.tsv.gz
+coller_complete_v2.tsv
+
+# filtered markers: 229572 markers
+coller_gbs_marker_v2.tsv
+
+#=======================
+# Old GBS markers from ian
+#=======================
 BC.complete.tsv
 # Complete Ler marker file (compared to TAIR10). The file "BC.complete.tiger.txt" was modified to tsv format by using "correct_complete_marker.sh" script.
 

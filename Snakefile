@@ -23,14 +23,17 @@ LIB_NAME = config["LIBRARY_INFO"]["lib_name"]
 REFGENOME = config["REFGENOME"]["fasta"]
 REF_FAI = config["REFGENOME"]["fai"]
 ## cutadapt
-TRIM_R1_3P = config["FILTER"]["cutadapt"]["trim_R1_3prime"]
+P2_adapter_index = config["FILTER"]["P2_adapter_index"]
+#P2_adapter_sequence=config["FILTER"]["P2_adapter_index"][P2_adapter_index]
+TRIM_R1_3P = config["FILTER"]["P2_adapter_sequence"][P2_adapter_index]
 TRIM_R2_3P_FILE = config["FILTER"]["cutadapt"]["trim_R2_3prime_file"]
 TRIM_R2_3P_DF = pd.read_csv(TRIM_R2_3P_FILE, header = None, sep = " ") # read the reverse complemented 96 adapter1 sequences
+
 ## bowtie2
 REFERENCE = config["MAPPING"]["reference"]
 REFBASE = os.path.basename(REFERENCE)
 ## markers to use
-MARKCOMP_GZ = config["MARKER"]["complete_gz"]
+BCF_TARGET = config["MARKER"]["bcf_target"]
 MARKCOMP = config["MARKER"]["complete"]
 MARKMASK = config["MARKER"]["mask"]
 ## TSV
@@ -42,7 +45,6 @@ TIGER_src = config["SCRIPTS"]["tiger"]
 RUNTIGER_src = config["SCRIPTS"]["runtiger"]
 COTABLE_src = config["SCRIPTS"]["cotable"]
 TSV_src = config["SCRIPTS"]["toTSV"]
-PLOT_src = config["SCRIPTS"]["plot"]
 
 
 # to be deleted
@@ -80,10 +82,7 @@ rule all:
            refbase = REFBASE),
        expand("results/{lib_name}_cotable.txt",
            lib_name = LIB_NAME),
-        expand("results/{lib_name}_genomeBin{binName}.tsv", lib_name = LIB_NAME, binName = binName),
-        expand("results/07_default_analysis/{lib_name}_co_landscape_ma-co_{ma_width}.pdf",
-                lib_name = LIB_NAME,
-                ma_width = config["PLOT"]["ma_width"])
+        expand("results/{lib_name}_genomeBin{binName}.tsv", lib_name = LIB_NAME, binName = binName)
 
 # Run fastqc on single-end raw data
 # Trim off adapters
@@ -106,21 +105,24 @@ rule cutadapt:
         trim_R1_3prime = TRIM_R1_3P,
         trim_R2_3prime = getadapt,
         cut_R1_5prime = config["FILTER"]["cutadapt"]["cut_R1_5prime"],
+        cut_R2_5prime = config["FILTER"]["cutadapt"]["cut_R2_5prime"],
         quality_filter = config["FILTER"]["cutadapt"]["quality-filter"],
-        minimum_overlap = config["FILTER"]["cutadapt"]["minimum-overlap"]
+        minimum_overlap = config["FILTER"]["cutadapt"]["minimum-overlap"],
+        P2_index = P2_adapter_index
     log:
         "logs/cutadapt/{sample}_trimmed.log"
     shell:
         "cutadapt -u {params.cut_R1_5prime}"
+        " -U {params.cut_R2_5prime}"
         " -a {params.trim_R1_3prime}"
         " -A {params.trim_R2_3prime}"
         " -O {params.minimum_overlap}"
         " -q {params.quality_filter}"
         # " --cores=0"
-        " raw/{wildcards.sample}_*_1.fastq.gz raw/{wildcards.sample}_*_2.fastq.gz"
+        " raw/M{wildcards.sample}_1.fastq.gz raw/M{wildcards.sample}_2.fastq.gz"
         " -o {output.tr_read1}"
         " -p {output.tr_read2}"
-        " > {output.qc} 2> {log}"
+        " > {output.qc} &> {log}"
 
 # Align to reference genome
 rule bowtie2:
@@ -141,7 +143,7 @@ rule bowtie2:
         "(bowtie2 --very-sensitive"
         " --threads {threads}"
         " -x {REFERENCE} -1 {input.tr_1} -2 {input.tr_2}"
-        " | samtools view -bh -@ {threads} -F 2308 -o {output} - ) 2> {log}"
+        " | samtools view -bh -@ {threads} -F 2308 -o {output} - ) &> {log}"
 
 # Filter out multireads by using MAPQscore
 rule samtools:
@@ -154,7 +156,7 @@ rule samtools:
     log: "logs/samtools/lib{sample}_MappedOn_{refbase}_sort.log"
     shell:
         "(samtools view -h {input} -q {params.MAPQmaxi} -u "
-        "| samtools sort -@ {threads} -m {params.sortMemory} -o {output} -) 2> {log};"
+        "| samtools sort -@ {threads} -m {params.sortMemory} -o {output} -) &> {log};"
         # http://biofinysics.blogspot.com/2014/05/how-does-bowtie2-assign-mapq-scores.html
         # https://sequencing.qcfail.com/articles/mapq-values-are-really-useful-but-their-implementation-is-a-mess/
 
@@ -180,8 +182,8 @@ rule varcall:
     input: "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam"
     shell:
         r"""
-        bcftools mpileup -f {REFGENOME} {input} -Ou |
-        bcftools call -m -T {MARKCOMP_GZ} -Oz -o {output.vcf} -
+        bcftools mpileup -T {BCF_TARGET} -C {BCF_TARGET} -f {REFGENOME} {input} -Ou |
+        bcftools call -m -T {BCF_TARGET} -Oz -o {output.vcf} -
         """
 rule index_vcf:
     output:
@@ -207,10 +209,13 @@ rule tigercall2tigerin:
         mask="results/05_tigerin/lib{sample}_MappedOn_{refbase}.mask.txt"
     input:
         "results/04_tigercall/lib{sample}_MappedOn_{refbase}.tigercalls.txt"
+    params:
+        markcomp = MARKCOMP,
+        markmask = MARKMASK
     shell:
         r"""
         mkdir -p tmp/tigerin_temp;
-        Rscript {TIGERIN_src} {input} tmp/tigerin_temp lib{wildcards.sample}
+        Rscript {TIGERIN_src} {input} tmp/tigerin_temp lib{wildcards.sample} {params.markcomp} {params.markmask}
         mv tmp/tigerin_temp/lib{wildcards.sample}.mask.txt {output.mask}
         mv tmp/tigerin_temp/lib{wildcards.sample}.complete.txt {output.complete}
         """
@@ -220,9 +225,11 @@ rule tiger:
     input:
         complete = "results/05_tigerin/lib{sample}_MappedOn_{refbase}.complete.txt",
         mask= "results/05_tigerin/lib{sample}_MappedOn_{refbase}.mask.txt"
+    log:
+        "logs/tiger/{sample}_{refbase}.tiger.log"
     shell:
         r"""
-        bash {RUNTIGER_src} {TIGER_src} {input.complete} {input.mask} results/06_tiger
+        bash {RUNTIGER_src} {TIGER_src} {input.complete} {input.mask} results/06_tiger &> {log}
         """
         # mkdir -p results/06_tiger
 rule cotable:
@@ -240,14 +247,3 @@ rule toGenomeBin:
         r"""
         Rscript {TSV_src} {input} {binSize} {REF_FAI} {output}
         """
-rule plotting:
-    output: "results/07_default_analysis/{lib_name}_co_landscape_ma-co_{ma_width}.pdf"
-    input:
-        input_file = expand("results/{lib_name}_genomeBin{binName}.tsv", lib_name=LIB_NAME, binName=binName)
-    params:
-        libname=LIB_NAME
-    shell:
-        r"""
-        Rscript {PLOT_src} {input} {params.libname}
-        """
-

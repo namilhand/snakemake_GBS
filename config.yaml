@@ -7,16 +7,31 @@
 THREADS: 30
 MEMORY: "300g"
 LIBRARY_INFO:
-  sample_size: 96
+  sample_size: 94
   # datein lib_name: (if possible) annotate library name with the date when macrogen finished sequencing
-  lib_name: "20231122_hta7-set1"
+  lib_name: "240312_wt-male"
 FILTER:
+  P2_adapter_index: "seq1"
+  P2_adapter_sequence: # sequences for trimming R1_3prime
+    seq1: "AGCGATCTAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
+    seq2: "AATAGAGAGAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
+    seq3: "AGAGGATAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
+    seq4: "ATCTACTCTAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
   cutadapt:
       cut_R1_5prime: 9 # -u (Cut 8bp index + T-OH from 5'end of Read1)
-      trim_R1_3prime: "AGATCGGAAGAGCGGTTCAGCAGGAATGCCGA" # -a
+        #trim_R1_3prime: "" # -a
+      cut_R2_5prime: 9 # -U?
       trim_R2_3prime_file: "data/GBS_adapter_P1_R.txt" # -A
       quality-filter: 19 # -q
       minimum-overlap: 3 # -O (default: 3)
+        # sequences for trimming R1_3prime
+        # P2-1: AGCGATCTAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA
+        # P2-2: AATAGAGAGAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA
+        # P2-3: AGAGGATAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA
+        # P2-4: ATCTACTCTAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA
+
+
+
 # NOTE: reference genome-specific mapping parameters
 MAPPING:
       # alignments: 10 # "In -k <N> mode, Bowtie 2 searches for up to N distinct, valid alignments for each read" However, the MAPQ becomes meaningless in -k mode. Thus I disable this option in bowtie2 rule.
@@ -25,9 +40,10 @@ MAPPING:
       MAPQmaxi: 2 # -q
       sortMemory: "5G"
 MARKER:
-  complete_gz: "data/ColLer_markers/BC.complete.tsv.gz"
-  complete: "data/ColLer_markers/BC.complete.tsv"
-  mask: "data/ColLer_markers/BC.mask.tsv"
+  #complete_gz: "data/ColLer_markers/coller_complete_v2.tsv.gz"
+  bcf_target: "data/ColLer_markers/coller_complete_v2_for_bcftools.tsv.gz"
+  complete: "data/ColLer_markers/coller_complete_v2.tsv"
+  mask: "data/ColLer_markers/coller_gbs_marker_v2.tsv"
 REFGENOME: 
   fasta: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta"
   fai: "/home/nison/work/refgenome/TAIR10/TAIR10.fasta.fai"
@@ -40,9 +56,6 @@ SCRIPTS:
   runtiger: "src/runTiger.sh"
   cotable: "src/GBS_cotable.R"
   toTSV: "src/cotableToGenomeBinTSV.R"
-  plot: "src/CO_landscape.R"
-PLOT:
-  ma_width: 7
 
 # NEBNext adapter and universal primer for Illumina:
 # https://international.neb.com/-/media/catalog/datacards-or-manuals/manuale7335.pdf

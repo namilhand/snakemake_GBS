@@ -18,15 +18,21 @@ args <- commandArgs(trailingOnly=TRUE)
 input <- args[1]
 outdir <- args[2]
 prefix <- args[3]
+file.complete <- args[4]
+file.mask <- args[5]
+
+#input <- "/datasets/data_4/nison/GBS/GBS_marker_v2/2019MMDD_GBS_Col/results/04_tigercall/lib16_MappedOn_tair10.tigercalls.txt"
+#file.complete <- "/datasets/data_4/nison/GBS/GBS_marker_v2/2019MMDD_GBS_Col/data/ColLer_markers/coller_complete_v2.tsv"
+#file.mask <- "/datasets/data_4/nison/GBS/GBS_marker_v2/2019MMDD_GBS_Col/data/ColLer_markers/coller_gbs_marker_v2.tsv"
 
 colname=c("Chr", "Pos", "Ref", "ref.count", "Alt", "alt.count")
 
 # tigercalls.txt
 tigercall <- read_delim(file=input, delim="\t", col_names=colname)
 # complete marker set
-complete <- read_delim(file="/usr/local/src/GBS_suite/ColLer_markers/BC.complete.tsv", delim="\t", col_names=colname)
+complete <- read_delim(file=file.complete, delim="\t", col_names=c("Chr", "Pos", "Ref", "Alt"))
 # corrected marker set (hqsnv)
-mask <- read_delim(file="/usr/local/src/GBS_suite/ColLer_markers/BC.mask.tsv", delim="\t", col_names=colname)
+mask <- read_delim(file=file.mask, delim="\t", col_names=c("Chr", "Pos", "Ref", "Alt"))
 
 #---- make tiger input files --------
 # {onlynum} : edit "Chr" column from "Chr_" to "_"
@@ -36,7 +42,6 @@ onlynum <- function(x){
 }
 # Update complete marker set with detected SNPs
 complete <- complete %>%
-        dplyr::select(-c("ref.count", "alt.count")) %>%
         left_join(tigercall[,-c(3,5)], by=c("Chr", "Pos")) %>%
         replace_na(list(ref.count=0, alt.count=0)) %>%
         relocate(ref.count, .after=Ref) %>%
@@ -44,8 +49,7 @@ complete <- complete %>%
 
 # Update corrected marker set with detected SNPs
 mask <- mask %>%
-        dplyr::select(-c("ref.count", "alt.count")) %>%
-        left_join(tigercall[,-c(3,5)], by=c("Chr", "Pos")) %>%
+        left_join(tigercall[, -c(3,5)], by=c("Chr", "Pos")) %>%
         replace_na(list(ref.count=0, alt.count=0)) %>%
         relocate(ref.count, .after=Ref) %>%
         mutate_at(vars(Chr), funs(onlynum))
