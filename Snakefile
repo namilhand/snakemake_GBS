@@ -24,8 +24,9 @@ REFGENOME = config["REFGENOME"]["fasta"]
 REF_FAI = config["REFGENOME"]["fai"]
 ## cutadapt
 P2_adapter_index = config["FILTER"]["P2_adapter_index"]
-#P2_adapter_sequence=config["FILTER"]["P2_adapter_index"][P2_adapter_index]
-TRIM_R1_3P = config["FILTER"]["P2_adapter_sequence"][P2_adapter_index]
+P2_adapter_sequence=config["FILTER"]["P2_adapter_sequence"][P2_adapter_index]
+#TRIM_R1_3P = config["FILTER"]["P2_adapter_sequence"][1]
+TRIM_R1_3P = P2_adapter_sequence
 TRIM_R2_3P_FILE = config["FILTER"]["cutadapt"]["trim_R2_3prime_file"]
 TRIM_R2_3P_DF = pd.read_csv(TRIM_R2_3P_FILE, header = None, sep = " ") # read the reverse complemented 96 adapter1 sequences
 
@@ -119,7 +120,7 @@ rule cutadapt:
         " -O {params.minimum_overlap}"
         " -q {params.quality_filter}"
         # " --cores=0"
-        " raw/M{wildcards.sample}_1.fastq.gz raw/M{wildcards.sample}_2.fastq.gz"
+        " raw/P1_{wildcards.sample}_P2_{params.P2_index}_1.fastq.gz raw/P1_{wildcards.sample}_P2_{params.P2_index}_2.fastq.gz"
         " -o {output.tr_read1}"
         " -p {output.tr_read2}"
         " > {output.qc} &> {log}"

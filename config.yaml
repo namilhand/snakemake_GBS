@@ -7,16 +7,16 @@
 THREADS: 30
 MEMORY: "300g"
 LIBRARY_INFO:
-  sample_size: 94
+  sample_size: 5
   # datein lib_name: (if possible) annotate library name with the date when macrogen finished sequencing
-  lib_name: "240312_wt-male"
+  lib_name: "libname"
 FILTER:
-  P2_adapter_index: "seq1"
+  P2_adapter_index: 3
   P2_adapter_sequence: # sequences for trimming R1_3prime
-    seq1: "AGCGATCTAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
-    seq2: "AATAGAGAGAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
-    seq3: "AGAGGATAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
-    seq4: "ATCTACTCTAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
+    1: "AGCGATCTAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
+    2: "AATAGAGAGAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
+    3: "AGAGGATAAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
+    4: "ATCTACTCTAGATCGGAAGAGCGGTTCAGCAGGAATGCCGA"
   cutadapt:
       cut_R1_5prime: 9 # -u (Cut 8bp index + T-OH from 5'end of Read1)
         #trim_R1_3prime: "" # -a
