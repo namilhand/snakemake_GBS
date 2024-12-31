@@ -24,9 +24,8 @@ REFGENOME = config["REFGENOME"]["fasta"]
 REF_FAI = config["REFGENOME"]["fai"]
 ## cutadapt
 P2_adapter_index = config["FILTER"]["P2_adapter_index"]
-P2_adapter_sequence=config["FILTER"]["P2_adapter_sequence"][P2_adapter_index]
-#TRIM_R1_3P = config["FILTER"]["P2_adapter_sequence"][1]
-TRIM_R1_3P = P2_adapter_sequence
+#P2_adapter_sequence=config["FILTER"]["P2_adapter_index"][P2_adapter_index]
+TRIM_R1_3P = config["FILTER"]["P2_adapter_sequence"][3]
 TRIM_R2_3P_FILE = config["FILTER"]["cutadapt"]["trim_R2_3prime_file"]
 TRIM_R2_3P_DF = pd.read_csv(TRIM_R2_3P_FILE, header = None, sep = " ") # read the reverse complemented 96 adapter1 sequences
 
@@ -102,6 +101,8 @@ rule cutadapt:
     # input:
     #     read1 = "data/fastq/{sample}_{barcode}_1.fastq.gz",
     #     read2 = "data/fastq/{sample}_{barcode}_2.fastq.gz"
+    resources:
+        tmpdir = "tmp"
     params:
         trim_R1_3prime = TRIM_R1_3P,
         trim_R2_3prime = getadapt,
@@ -166,12 +167,15 @@ rule markdup:
         bam="results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam",
         metric="logs/markdup/lib{sample}_MappedOn_{refbase}_sort.md.txt",
         index = "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.md.bam.bai"
+    resources:
+        tmpdir = "tmp"
     input: "results/02_bowtie2/filtered/lib{sample}_MappedOn_{refbase}_sort.bam"
     # threads: config["THREADS"]
     shell:
         "picard MarkDuplicates -I {input}"
         " -O {output.bam}"
         " -M {output.metric}"
+        " --TMP_DIR {resources.tmpdir}"
         " --REMOVE_DUPLICATES true;"
         "samtools index {output.bam} -o {output.index}"
 
