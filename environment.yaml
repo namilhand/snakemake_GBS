@@ -2,6 +2,7 @@
 channels:
   - conda-forge
   - bioconda
+  - r
   - defaults
 dependencies:
   - snakemake=7.25.2
@@ -13,3 +14,4 @@ dependencies:
   - samtools=1.17
   - conda-forge::ncurses=6.3
   - snakemake-wrapper-utils=0.5.3
+  - r-tidyverse=2.0.0
